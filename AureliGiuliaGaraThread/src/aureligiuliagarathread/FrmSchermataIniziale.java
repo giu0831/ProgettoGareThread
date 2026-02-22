@@ -11,12 +11,15 @@ package aureligiuliagarathread;
 public class FrmSchermataIniziale extends javax.swing.JFrame {
     
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(FrmSchermataIniziale.class.getName());
-
+    private MusicaSottofondo musica;
     /**
      * Creates new form SchermataIniziale
      */
     public FrmSchermataIniziale() {
         initComponents();
+        // Avvia la musica di sottofondo appena parte la finestra
+        musica = new MusicaSottofondo("/suoni/Black_Sorrow.wav");
+        musica.start();
     }
 
     /**
@@ -92,6 +95,7 @@ public class FrmSchermataIniziale extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnAvviaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAvviaActionPerformed
+        if (musica != null) musica.stop();
         FrmStage frmStage = new FrmStage();
         frmStage.setVisible(true);
         this.dispose();
