@@ -28,7 +28,7 @@ public class ProgressThread extends Thread{
         pausa = false;
         finito = false;
         stop = false;
-        ritardo = r.nextInt(10, 101);
+        ritardo = r.nextInt(30, 101);
     }
 
     /**

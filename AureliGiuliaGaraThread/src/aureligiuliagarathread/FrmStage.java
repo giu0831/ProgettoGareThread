@@ -105,7 +105,6 @@ public class FrmStage extends javax.swing.JFrame {
 
         pnlStage.setBackground(new java.awt.Color(153, 153, 255));
 
-        pb2.setBackground(new java.awt.Color(204, 204, 204));
         pb2.setForeground(new java.awt.Color(255, 51, 0));
 
         lblConcorrente1.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N

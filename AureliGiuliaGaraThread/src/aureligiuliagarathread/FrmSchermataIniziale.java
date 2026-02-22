@@ -36,6 +36,7 @@ public class FrmSchermataIniziale extends javax.swing.JFrame {
         btnAvvia = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Schermata iniziale");
 
         jPanel1.setBackground(new java.awt.Color(51, 51, 51));
 
