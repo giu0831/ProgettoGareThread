@@ -48,13 +48,11 @@ public class Round {
                 if (t1.isFinito() && vincitore == null) {
                     vincitore = c1;
                     t2.ferma();
-                    System.out.println(c1);
                 }
                 //controllo per vedere se il secondo thread ha finito
                 if (t2.isFinito() && vincitore == null) {
                     vincitore = c2;
                     t1.ferma();
-                    System.out.println(c2);
                 }
 
                 try {
