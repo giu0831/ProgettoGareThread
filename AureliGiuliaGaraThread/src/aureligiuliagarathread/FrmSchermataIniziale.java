@@ -32,16 +32,16 @@ public class FrmSchermataIniziale extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
+        lblTitolo = new javax.swing.JLabel();
         btnAvvia = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setBackground(new java.awt.Color(51, 51, 51));
 
-        jLabel1.setFont(new java.awt.Font("Arial Black", 0, 36)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(153, 255, 255));
-        jLabel1.setText("ALIEN STAGE");
+        lblTitolo.setFont(new java.awt.Font("Arial Black", 0, 36)); // NOI18N
+        lblTitolo.setForeground(new java.awt.Color(153, 255, 255));
+        lblTitolo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/immagini/alien_stage_logo-removebg-preview.png"))); // NOI18N
 
         btnAvvia.setBackground(new java.awt.Color(0, 0, 0));
         btnAvvia.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
@@ -61,23 +61,22 @@ public class FrmSchermataIniziale extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(41, 41, 41)
-                        .addComponent(jLabel1))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(121, 121, 121)
-                        .addComponent(btnAvvia, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(43, Short.MAX_VALUE))
+                .addGap(25, 25, 25)
+                .addComponent(lblTitolo)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(148, Short.MAX_VALUE)
+                .addComponent(btnAvvia, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(151, 151, 151))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(18, 18, 18)
-                .addComponent(jLabel1)
-                .addGap(56, 56, 56)
+                .addComponent(lblTitolo)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
                 .addComponent(btnAvvia)
-                .addContainerGap(73, Short.MAX_VALUE))
+                .addGap(30, 30, 30))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -128,7 +127,7 @@ public class FrmSchermataIniziale extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAvvia;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JLabel lblTitolo;
     // End of variables declaration//GEN-END:variables
 }
