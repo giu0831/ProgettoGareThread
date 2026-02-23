@@ -5,7 +5,7 @@
 package aureligiuliagarathread;
 
 /**
- *
+ * Classe che gestisce la musica riprodotta durante i round
  * @author utente
  */
 public class GestioneMusica {
