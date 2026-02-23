@@ -13,21 +13,32 @@ import java.util.*;
 public class GestioneTorneo {
     private static Torneo torneo;
 
+    /**
+     * Metodo che fa riiniziare il torneo
+     */
     public static void nuovoTorneo() {
+        //creazione dei personaggi
         ArrayList<Concorrente> partecipanti = new ArrayList<>();
-        partecipanti.add(new Concorrente("Mizi", java.awt.Color.PINK));
-        partecipanti.add(new Concorrente("Sua", java.awt.Color.GRAY));
-        partecipanti.add(new Concorrente("Till", java.awt.Color.GREEN));
-        partecipanti.add(new Concorrente("Ivan", java.awt.Color.DARK_GRAY));
-        partecipanti.add(new Concorrente("Luka", java.awt.Color.YELLOW));
-        partecipanti.add(new Concorrente("Hyuna", java.awt.Color.RED));
+        partecipanti.add(new Concorrente("Mizi", java.awt.Color.PINK, null));
+        partecipanti.add(new Concorrente("Sua", java.awt.Color.GRAY, null));
+        partecipanti.add(new Concorrente("Till", java.awt.Color.GREEN, null));
+        partecipanti.add(new Concorrente("Ivan", java.awt.Color.DARK_GRAY, null));
+        partecipanti.add(new Concorrente("Luka", java.awt.Color.YELLOW, null));
+        partecipanti.add(new Concorrente("Hyuna", java.awt.Color.RED, null));
+        //ricrea il torneo con tutti i personaggi
         torneo = new Torneo(partecipanti); 
    }
 
+    /**
+     * Metodo costruttore
+     */
     public GestioneTorneo() {
     }
 
-    
+    /**
+     * Metodo get
+     * @return torneo
+     */
     public static Torneo getTorneo() {
         return torneo;
     }

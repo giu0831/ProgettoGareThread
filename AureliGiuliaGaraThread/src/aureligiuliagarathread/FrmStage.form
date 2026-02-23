@@ -37,7 +37,7 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" attributes="0">
               <Component id="pnlStage" min="-2" max="-2" attributes="0"/>
-              <EmptySpace max="-2" attributes="0"/>
+              <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
               <Component id="pnlMenu" max="32767" attributes="0"/>
           </Group>
       </Group>
@@ -166,6 +166,13 @@
                   <Component id="lblConcorrente2" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="112" max="-2" attributes="0"/>
               </Group>
+              <Group type="102" alignment="0" attributes="0">
+                  <EmptySpace min="-2" pref="148" max="-2" attributes="0"/>
+                  <Component id="lblIconaConcorrente1" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace max="32767" attributes="0"/>
+                  <Component id="lblIconaConcorrente2" min="-2" pref="24" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="148" max="-2" attributes="0"/>
+              </Group>
           </Group>
         </DimensionLayout>
         <DimensionLayout dim="1">
@@ -176,7 +183,12 @@
                       <Component id="lblConcorrente1" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="lblConcorrente2" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace pref="281" max="32767" attributes="0"/>
+                  <EmptySpace min="-2" pref="117" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="lblIconaConcorrente1" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="lblIconaConcorrente2" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace pref="148" max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="1" attributes="0">
                       <Component id="pb1" min="-2" pref="20" max="-2" attributes="0"/>
                       <Component id="pb2" min="-2" pref="20" max="-2" attributes="0"/>
@@ -210,6 +222,16 @@
               <Font name="Dialog" size="18" style="1"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Concorrente 2"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="lblIconaConcorrente1">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="-"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="lblIconaConcorrente2">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="-"/>
           </Properties>
         </Component>
       </SubComponents>

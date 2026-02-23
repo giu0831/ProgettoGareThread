@@ -46,6 +46,8 @@ public class FrmStage extends javax.swing.JFrame {
         pb1 = new javax.swing.JProgressBar();
         lblConcorrente1 = new javax.swing.JLabel();
         lblConcorrente2 = new javax.swing.JLabel();
+        lblIconaConcorrente1 = new javax.swing.JLabel();
+        lblIconaConcorrente2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Stage");
@@ -113,6 +115,10 @@ public class FrmStage extends javax.swing.JFrame {
         lblConcorrente2.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         lblConcorrente2.setText("Concorrente 2");
 
+        lblIconaConcorrente1.setText("-");
+
+        lblIconaConcorrente2.setText("-");
+
         javax.swing.GroupLayout pnlStageLayout = new javax.swing.GroupLayout(pnlStage);
         pnlStage.setLayout(pnlStageLayout);
         pnlStageLayout.setHorizontalGroup(
@@ -129,6 +135,12 @@ public class FrmStage extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(lblConcorrente2)
                 .addGap(112, 112, 112))
+            .addGroup(pnlStageLayout.createSequentialGroup()
+                .addGap(148, 148, 148)
+                .addComponent(lblIconaConcorrente1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(lblIconaConcorrente2, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(148, 148, 148))
         );
         pnlStageLayout.setVerticalGroup(
             pnlStageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -137,7 +149,11 @@ public class FrmStage extends javax.swing.JFrame {
                 .addGroup(pnlStageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblConcorrente1)
                     .addComponent(lblConcorrente2))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 281, Short.MAX_VALUE)
+                .addGap(117, 117, 117)
+                .addGroup(pnlStageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblIconaConcorrente1)
+                    .addComponent(lblIconaConcorrente2))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 148, Short.MAX_VALUE)
                 .addGroup(pnlStageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(pb1, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(pb2, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -155,7 +171,7 @@ public class FrmStage extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(pnlStage, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(0, 0, 0)
                 .addComponent(pnlMenu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -233,6 +249,8 @@ public class FrmStage extends javax.swing.JFrame {
     private javax.swing.JButton btnProssimoRound;
     private javax.swing.JLabel lblConcorrente1;
     private javax.swing.JLabel lblConcorrente2;
+    private javax.swing.JLabel lblIconaConcorrente1;
+    private javax.swing.JLabel lblIconaConcorrente2;
     private javax.swing.JProgressBar pb1;
     private javax.swing.JProgressBar pb2;
     private javax.swing.JPanel pnlMenu;

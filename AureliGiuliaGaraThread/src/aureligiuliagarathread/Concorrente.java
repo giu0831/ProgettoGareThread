@@ -13,15 +13,18 @@ import javax.swing.ImageIcon;
 public class Concorrente {
     private String nome;
     private Color colore;
+    private ImageIcon icona;
 
     /**
      * Metodo costruttore della classe Concorrente
      * @param nome nome del concorrente
      * @param colore colore della progress bar utilizzata da lui
+     * @param icona immagine del personaggio
      */
-    public Concorrente(String nome, Color colore) {
+    public Concorrente(String nome, Color colore, ImageIcon icona) {
         this.nome = nome;
         this.colore = colore;
+        this.icona = icona;
     }
 
     /**
@@ -40,6 +43,15 @@ public class Concorrente {
         return colore;
     }
 
+    /**
+     * Metodo get
+     * @return immagine del personaggio
+     */
+    public ImageIcon getIcona() {
+        return icona;
+    }
+
+    
     @Override
     public String toString() {
         return nome;
