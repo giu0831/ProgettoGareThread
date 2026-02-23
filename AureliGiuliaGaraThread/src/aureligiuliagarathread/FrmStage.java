@@ -13,29 +13,18 @@ import javax.swing.JOptionPane;
 public class FrmStage extends javax.swing.JFrame {
     
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(FrmStage.class.getName());
-    private Concorrente[] concorrentiAttuali = new Concorrente[2];
-    private Round round;
-    static int nRound;
     /**
      * Creates new form FrmStage
      */
     public FrmStage() {
         initComponents();
+        //creazione torneo
         GestioneTorneo.nuovoTorneo();
-        nRound = 1;
-        concorrentiAttuali = GestioneTorneo.getTorneo().prossimoRound();
-        round = new Round(concorrentiAttuali[0], concorrentiAttuali[1], pb1, pb2);
-        lblConcorrente1.setText(concorrentiAttuali[0].getNome());
-        lblConcorrente2.setText(concorrentiAttuali[1].getNome());
-        pb1.setForeground(concorrentiAttuali[0].getColore());
-        pb2.setForeground(concorrentiAttuali[1].getColore());
-        lblIconaConcorrente1.setIcon(concorrentiAttuali[0].getIcona());
-        lblIconaConcorrente2.setIcon(concorrentiAttuali[1].getIcona());
-        lblNRound.setText("Round " + nRound);
-        pnlStage.revalidate();
-pnlStage.repaint();
-pnlMenu.revalidate();
-pnlMenu.repaint();
+        //creazione round 1
+        GestioneRound.nuovoRound(pb1, pb2);
+        //scrittura dati iniziali
+        ScriviConcorrenti();
+        lblNRound.setText("Round " + GestioneRound.getNRound());
     }
 
     /**
@@ -196,54 +185,60 @@ pnlMenu.repaint();
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnProssimoRoundActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProssimoRoundActionPerformed
-        ScriviRound();
-        GestioneTorneo.getTorneo().registraVincitore(round.getVincitore());
-        concorrentiAttuali = null;
-        concorrentiAttuali = GestioneTorneo.getTorneo().prossimoRound();
-        if(concorrentiAttuali == null){
+        GestioneTorneo.getTorneo().registraVincitore(GestioneRound.getVincitoreRound());
+        if(!GestioneRound.nuovoRound(pb1, pb2)){
             JOptionPane.showMessageDialog(this, "torneo finito! \n" + GestioneTorneo.getTorneo().getCampione() + " ha vinto.");
             FrmSchermataIniziale frmSchermataIniziale = new FrmSchermataIniziale();
             frmSchermataIniziale.setVisible(true);
             this.dispose();
         }
         else{
-            round = new Round(concorrentiAttuali[0], concorrentiAttuali[1], pb1, pb2);
-            lblConcorrente1.setText(concorrentiAttuali[0].getNome());
-            lblConcorrente2.setText(concorrentiAttuali[1].getNome());
-            pb1.setForeground(concorrentiAttuali[0].getColore());
-            pb2.setForeground(concorrentiAttuali[1].getColore());
+            ScriviConcorrenti();
             pb1.setValue(0);
             pb2.setValue(0);
-            lblIconaConcorrente1.setIcon(concorrentiAttuali[0].getIcona());
-            lblIconaConcorrente2.setIcon(concorrentiAttuali[1].getIcona());
             btnAvviaRound.setEnabled(true);
             btnProssimoRound.setEnabled(false);
         }
+        ScriviRound();
     }//GEN-LAST:event_btnProssimoRoundActionPerformed
 
     private void btnAvviaRoundActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAvviaRoundActionPerformed
-        round.avvia();
+        GestioneRound.avviaRound();
         btnAvviaRound.setEnabled(false);
         btnProssimoRound.setEnabled(false);
         Thread t = new Thread(() -> {
-            while (!round.isFinito()) {
+            while (!GestioneRound.getRound().isFinito()) {
                 try {
                     Thread.sleep(10);
                 } catch (InterruptedException e) {}
             }
             javax.swing.SwingUtilities.invokeLater(() -> {
                 btnProssimoRound.setEnabled(true);
-                JOptionPane.showMessageDialog(this, "Round finito! \n" + round.getVincitore() + " ha vinto.");
+                JOptionPane.showMessageDialog(this, "Round finito! \n" + GestioneRound.getVincitoreRound() + " ha vinto.");
             });
         });
         t.start();
     }//GEN-LAST:event_btnAvviaRoundActionPerformed
 
+    /**
+     * Metodo che aggiorna il label round
+     */
     public void ScriviRound(){
-        nRound++;
-        if(nRound == 5)lblNRound.setText("Finale");
-        else if(nRound == 4)lblNRound.setText("Semi Finale");
-        else if(nRound < 4) lblNRound.setText("Round " + nRound); 
+        if(GestioneRound.getNRound() == 5)lblNRound.setText("Finale");
+        else if(GestioneRound.getNRound() == 4)lblNRound.setText("Semi Finale");
+        else if(GestioneRound.getNRound() < 4) lblNRound.setText("Round " + GestioneRound.getNRound()); 
+    }
+    
+    /**
+     * Metodo che aggiorna i componenti in base ai concorrenti
+     */
+    public void ScriviConcorrenti(){
+        lblConcorrente1.setText(GestioneRound.getConcorrentiAttuali()[0].getNome());
+        lblConcorrente2.setText(GestioneRound.getConcorrentiAttuali()[1].getNome());
+        pb1.setForeground(GestioneRound.getConcorrentiAttuali()[0].getColore());
+        pb2.setForeground(GestioneRound.getConcorrentiAttuali()[1].getColore());
+        lblIconaConcorrente1.setIcon(GestioneRound.getConcorrentiAttuali()[0].getIcona());
+        lblIconaConcorrente2.setIcon(GestioneRound.getConcorrentiAttuali()[1].getIcona());
     }
     /**
      * @param args the command line arguments
