@@ -29,7 +29,13 @@ public class FrmStage extends javax.swing.JFrame {
         lblConcorrente2.setText(concorrentiAttuali[1].getNome());
         pb1.setForeground(concorrentiAttuali[0].getColore());
         pb2.setForeground(concorrentiAttuali[1].getColore());
+        lblIconaConcorrente1.setIcon(concorrentiAttuali[0].getIcona());
+        lblIconaConcorrente2.setIcon(concorrentiAttuali[1].getIcona());
         lblNRound.setText("Round " + nRound);
+        pnlStage.revalidate();
+pnlStage.repaint();
+pnlMenu.revalidate();
+pnlMenu.repaint();
     }
 
     /**
@@ -57,9 +63,9 @@ public class FrmStage extends javax.swing.JFrame {
         setTitle("Stage");
         setBackground(new java.awt.Color(204, 204, 204));
         setName("frmStage"); // NOI18N
-        setResizable(false);
 
         pnlMenu.setBackground(new java.awt.Color(51, 51, 51));
+        pnlMenu.setMinimumSize(new java.awt.Dimension(699, 70));
 
         btnProssimoRound.setBackground(new java.awt.Color(0, 0, 0));
         btnProssimoRound.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
@@ -106,10 +112,11 @@ public class FrmStage extends javax.swing.JFrame {
                 .addGroup(pnlMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnProssimoRound, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnAvviaRound, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(214, Short.MAX_VALUE))
         );
 
         pnlStage.setBackground(new java.awt.Color(153, 153, 255));
+        pnlStage.setMaximumSize(new java.awt.Dimension(400, 700));
 
         pb2.setForeground(new java.awt.Color(255, 51, 0));
 
@@ -118,10 +125,6 @@ public class FrmStage extends javax.swing.JFrame {
 
         lblConcorrente2.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         lblConcorrente2.setText("nome 2");
-
-        lblIconaConcorrente1.setText("-");
-
-        lblIconaConcorrente2.setText("-");
 
         lblNRound.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
         lblNRound.setText("round -");
@@ -133,25 +136,25 @@ public class FrmStage extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlStageLayout.createSequentialGroup()
                 .addGap(33, 33, 33)
                 .addComponent(pb1, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
                 .addComponent(pb2, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(33, 33, 33))
             .addGroup(pnlStageLayout.createSequentialGroup()
-                .addGap(148, 148, 148)
+                .addGap(69, 69, 69)
                 .addComponent(lblIconaConcorrente1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(lblIconaConcorrente2)
-                .addGap(148, 148, 148))
+                .addGap(107, 107, 107))
             .addGroup(pnlStageLayout.createSequentialGroup()
                 .addGroup(pnlStageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(pnlStageLayout.createSequentialGroup()
-                        .addGap(319, 319, 319)
-                        .addComponent(lblNRound))
                     .addGroup(pnlStageLayout.createSequentialGroup()
                         .addGap(116, 116, 116)
                         .addComponent(lblConcorrente1)
                         .addGap(332, 332, 332)
-                        .addComponent(lblConcorrente2)))
+                        .addComponent(lblConcorrente2))
+                    .addGroup(pnlStageLayout.createSequentialGroup()
+                        .addGap(295, 295, 295)
+                        .addComponent(lblNRound)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         pnlStageLayout.setVerticalGroup(
@@ -163,11 +166,11 @@ public class FrmStage extends javax.swing.JFrame {
                 .addGroup(pnlStageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblConcorrente1)
                     .addComponent(lblConcorrente2))
-                .addGap(91, 91, 91)
-                .addGroup(pnlStageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblIconaConcorrente1)
-                    .addComponent(lblIconaConcorrente2))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 148, Short.MAX_VALUE)
+                .addGap(23, 23, 23)
+                .addGroup(pnlStageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblIconaConcorrente2)
+                    .addComponent(lblIconaConcorrente1))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 30, Short.MAX_VALUE)
                 .addGroup(pnlStageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(pb1, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(pb2, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -211,6 +214,8 @@ public class FrmStage extends javax.swing.JFrame {
             pb2.setForeground(concorrentiAttuali[1].getColore());
             pb1.setValue(0);
             pb2.setValue(0);
+            lblIconaConcorrente1.setIcon(concorrentiAttuali[0].getIcona());
+            lblIconaConcorrente2.setIcon(concorrentiAttuali[1].getIcona());
             btnAvviaRound.setEnabled(true);
             btnProssimoRound.setEnabled(false);
         }

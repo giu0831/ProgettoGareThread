@@ -8,7 +8,6 @@
       <Color blue="cc" green="cc" red="cc" type="rgb"/>
     </Property>
     <Property name="name" type="java.lang.String" value="frmStage" noResource="true"/>
-    <Property name="resizable" type="boolean" value="false"/>
   </Properties>
   <SyntheticProperties>
     <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
@@ -49,6 +48,9 @@
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="33" green="33" red="33" type="rgb"/>
         </Property>
+        <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+          <Dimension value="[699, 70]"/>
+        </Property>
       </Properties>
 
       <Layout>
@@ -71,7 +73,7 @@
                       <Component id="btnProssimoRound" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
                       <Component id="btnAvviaRound" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace max="32767" attributes="0"/>
+                  <EmptySpace pref="214" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -147,6 +149,9 @@
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="ff" green="99" red="99" type="rgb"/>
         </Property>
+        <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+          <Dimension value="[400, 700]"/>
+        </Property>
       </Properties>
 
       <Layout>
@@ -155,28 +160,28 @@
               <Group type="102" alignment="1" attributes="0">
                   <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
                   <Component id="pb1" min="-2" pref="300" max="-2" attributes="0"/>
-                  <EmptySpace pref="34" max="32767" attributes="0"/>
+                  <EmptySpace pref="33" max="32767" attributes="0"/>
                   <Component id="pb2" min="-2" pref="300" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
               </Group>
               <Group type="102" alignment="0" attributes="0">
-                  <EmptySpace min="-2" pref="148" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="69" max="-2" attributes="0"/>
                   <Component id="lblIconaConcorrente1" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="32767" attributes="0"/>
                   <Component id="lblIconaConcorrente2" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="148" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="107" max="-2" attributes="0"/>
               </Group>
               <Group type="102" attributes="0">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="319" max="-2" attributes="0"/>
-                          <Component id="lblNRound" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <Group type="102" alignment="0" attributes="0">
+                      <Group type="102" attributes="0">
                           <EmptySpace min="-2" pref="116" max="-2" attributes="0"/>
                           <Component id="lblConcorrente1" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="332" pref="332" max="-2" attributes="0"/>
                           <Component id="lblConcorrente2" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace min="-2" pref="295" max="-2" attributes="0"/>
+                          <Component id="lblNRound" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                   <EmptySpace max="32767" attributes="0"/>
@@ -193,12 +198,12 @@
                       <Component id="lblConcorrente1" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="lblConcorrente2" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace min="-2" pref="91" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="lblIconaConcorrente1" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="lblIconaConcorrente2" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Component id="lblIconaConcorrente2" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="lblIconaConcorrente1" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace pref="148" max="32767" attributes="0"/>
+                  <EmptySpace pref="30" max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="1" attributes="0">
                       <Component id="pb1" min="-2" pref="20" max="-2" attributes="0"/>
                       <Component id="pb2" min="-2" pref="20" max="-2" attributes="0"/>
@@ -235,14 +240,8 @@
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="lblIconaConcorrente1">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="-"/>
-          </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="lblIconaConcorrente2">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="-"/>
-          </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="lblNRound">
           <Properties>
