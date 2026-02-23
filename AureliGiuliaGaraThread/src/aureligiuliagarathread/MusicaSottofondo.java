@@ -15,6 +15,10 @@ public class MusicaSottofondo {
 
     private Clip clip;
 
+    /**
+     * Metodo costruttore della classe MusicaSottofondo
+     * @param percorsoRisorsa percorso della musica
+     */
     public MusicaSottofondo(String percorsoRisorsa) {
         try {
             AudioInputStream audio = AudioSystem.getAudioInputStream(
@@ -35,5 +39,16 @@ public class MusicaSottofondo {
 
     public void stop() {
         if (clip != null) clip.stop();
+    }
+    
+    /**
+     * Imposta il volume della musica in decibel.
+     * @param decibel numero decibel per abbassare il volume
+     */
+    public void setVolume(float decibel) {
+        if (clip != null && clip.isControlSupported(FloatControl.Type.MASTER_GAIN)) {
+            FloatControl gainControl = (FloatControl) clip.getControl(FloatControl.Type.MASTER_GAIN);
+            gainControl.setValue(decibel);
+        }
     }
 }

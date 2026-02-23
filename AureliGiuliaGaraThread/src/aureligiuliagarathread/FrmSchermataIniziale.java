@@ -20,6 +20,7 @@ public class FrmSchermataIniziale extends javax.swing.JFrame {
         // Avvia la musica di sottofondo appena parte la finestra
         musica = new MusicaSottofondo("/suoni/Black_Sorrow.wav");
         musica.start();
+        musica.setVolume(-20);
     }
 
     /**
