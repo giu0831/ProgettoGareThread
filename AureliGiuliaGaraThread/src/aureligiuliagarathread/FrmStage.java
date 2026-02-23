@@ -21,6 +21,7 @@ public class FrmStage extends javax.swing.JFrame {
         //creazione torneo
         GestioneTorneo.nuovoTorneo();
         //creazione round 1
+        GestioneRound.azzeraRound();
         GestioneRound.nuovoRound(pb1, pb2);
         //scrittura dati iniziali
         ScriviConcorrenti();
@@ -197,6 +198,7 @@ public class FrmStage extends javax.swing.JFrame {
             pb2.setValue(0);
             btnAvviaRound.setEnabled(true);
             btnProssimoRound.setEnabled(false);
+            if(GestioneRound.getNRound() == 5) btnProssimoRound.setText("VEDI VINCITORE");
         }
         ScriviRound();
     }//GEN-LAST:event_btnProssimoRoundActionPerformed
