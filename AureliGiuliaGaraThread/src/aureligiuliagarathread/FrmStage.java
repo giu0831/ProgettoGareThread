@@ -4,7 +4,9 @@
  */
 package aureligiuliagarathread;
 
+import java.awt.BorderLayout;
 import javax.swing.JOptionPane;
+import javax.swing.SwingConstants;
 
 /**
  *
@@ -143,7 +145,7 @@ public class FrmStage extends javax.swing.JFrame {
                         .addGap(332, 332, 332)
                         .addComponent(lblConcorrente2))
                     .addGroup(pnlStageLayout.createSequentialGroup()
-                        .addGap(295, 295, 295)
+                        .addGap(305, 305, 305)
                         .addComponent(lblNRound)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );

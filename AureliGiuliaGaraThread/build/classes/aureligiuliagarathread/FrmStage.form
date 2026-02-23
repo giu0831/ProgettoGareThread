@@ -180,7 +180,7 @@
                           <Component id="lblConcorrente2" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="295" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="305" max="-2" attributes="0"/>
                           <Component id="lblNRound" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
