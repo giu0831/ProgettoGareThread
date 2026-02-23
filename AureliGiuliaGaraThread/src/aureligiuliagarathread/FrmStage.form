@@ -71,7 +71,7 @@
                       <Component id="btnProssimoRound" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
                       <Component id="btnAvviaRound" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace pref="18" max="32767" attributes="0"/>
+                  <EmptySpace max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -160,30 +160,40 @@
                   <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
               </Group>
               <Group type="102" alignment="0" attributes="0">
-                  <EmptySpace min="-2" pref="105" max="-2" attributes="0"/>
-                  <Component id="lblConcorrente1" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace max="32767" attributes="0"/>
-                  <Component id="lblConcorrente2" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="112" max="-2" attributes="0"/>
-              </Group>
-              <Group type="102" alignment="0" attributes="0">
                   <EmptySpace min="-2" pref="148" max="-2" attributes="0"/>
                   <Component id="lblIconaConcorrente1" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="32767" attributes="0"/>
-                  <Component id="lblIconaConcorrente2" min="-2" pref="24" max="-2" attributes="0"/>
+                  <Component id="lblIconaConcorrente2" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="148" max="-2" attributes="0"/>
+              </Group>
+              <Group type="102" attributes="0">
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace min="-2" pref="319" max="-2" attributes="0"/>
+                          <Component id="lblNRound" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace min="-2" pref="116" max="-2" attributes="0"/>
+                          <Component id="lblConcorrente1" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="332" pref="332" max="-2" attributes="0"/>
+                          <Component id="lblConcorrente2" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
+                  <EmptySpace max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="1" attributes="0">
-                  <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
+                  <Component id="lblNRound" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="lblConcorrente1" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="lblConcorrente2" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace min="-2" pref="117" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="91" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="lblIconaConcorrente1" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="lblIconaConcorrente2" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -213,7 +223,7 @@
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Dialog" size="18" style="1"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Concorrente 1"/>
+            <Property name="text" type="java.lang.String" value="nome 1"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="lblConcorrente2">
@@ -221,7 +231,7 @@
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Dialog" size="18" style="1"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Concorrente 2"/>
+            <Property name="text" type="java.lang.String" value="nome 2"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="lblIconaConcorrente1">
@@ -232,6 +242,14 @@
         <Component class="javax.swing.JLabel" name="lblIconaConcorrente2">
           <Properties>
             <Property name="text" type="java.lang.String" value="-"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="lblNRound">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Dialog" size="24" style="1"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="round -"/>
           </Properties>
         </Component>
       </SubComponents>

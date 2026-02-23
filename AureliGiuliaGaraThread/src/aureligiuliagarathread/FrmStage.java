@@ -15,18 +15,21 @@ public class FrmStage extends javax.swing.JFrame {
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(FrmStage.class.getName());
     private Concorrente[] concorrentiAttuali = new Concorrente[2];
     private Round round;
+    static int nRound;
     /**
      * Creates new form FrmStage
      */
     public FrmStage() {
         initComponents();
         GestioneTorneo.nuovoTorneo();
+        nRound = 1;
         concorrentiAttuali = GestioneTorneo.getTorneo().prossimoRound();
         round = new Round(concorrentiAttuali[0], concorrentiAttuali[1], pb1, pb2);
         lblConcorrente1.setText(concorrentiAttuali[0].getNome());
         lblConcorrente2.setText(concorrentiAttuali[1].getNome());
         pb1.setForeground(concorrentiAttuali[0].getColore());
         pb2.setForeground(concorrentiAttuali[1].getColore());
+        lblNRound.setText("Round " + nRound);
     }
 
     /**
@@ -48,6 +51,7 @@ public class FrmStage extends javax.swing.JFrame {
         lblConcorrente2 = new javax.swing.JLabel();
         lblIconaConcorrente1 = new javax.swing.JLabel();
         lblIconaConcorrente2 = new javax.swing.JLabel();
+        lblNRound = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Stage");
@@ -102,7 +106,7 @@ public class FrmStage extends javax.swing.JFrame {
                 .addGroup(pnlMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnProssimoRound, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnAvviaRound, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(18, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pnlStage.setBackground(new java.awt.Color(153, 153, 255));
@@ -110,14 +114,17 @@ public class FrmStage extends javax.swing.JFrame {
         pb2.setForeground(new java.awt.Color(255, 51, 0));
 
         lblConcorrente1.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        lblConcorrente1.setText("Concorrente 1");
+        lblConcorrente1.setText("nome 1");
 
         lblConcorrente2.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        lblConcorrente2.setText("Concorrente 2");
+        lblConcorrente2.setText("nome 2");
 
         lblIconaConcorrente1.setText("-");
 
         lblIconaConcorrente2.setText("-");
+
+        lblNRound.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        lblNRound.setText("round -");
 
         javax.swing.GroupLayout pnlStageLayout = new javax.swing.GroupLayout(pnlStage);
         pnlStage.setLayout(pnlStageLayout);
@@ -130,26 +137,33 @@ public class FrmStage extends javax.swing.JFrame {
                 .addComponent(pb2, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(33, 33, 33))
             .addGroup(pnlStageLayout.createSequentialGroup()
-                .addGap(105, 105, 105)
-                .addComponent(lblConcorrente1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(lblConcorrente2)
-                .addGap(112, 112, 112))
-            .addGroup(pnlStageLayout.createSequentialGroup()
                 .addGap(148, 148, 148)
                 .addComponent(lblIconaConcorrente1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(lblIconaConcorrente2, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(lblIconaConcorrente2)
                 .addGap(148, 148, 148))
+            .addGroup(pnlStageLayout.createSequentialGroup()
+                .addGroup(pnlStageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pnlStageLayout.createSequentialGroup()
+                        .addGap(319, 319, 319)
+                        .addComponent(lblNRound))
+                    .addGroup(pnlStageLayout.createSequentialGroup()
+                        .addGap(116, 116, 116)
+                        .addComponent(lblConcorrente1)
+                        .addGap(332, 332, 332)
+                        .addComponent(lblConcorrente2)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         pnlStageLayout.setVerticalGroup(
             pnlStageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlStageLayout.createSequentialGroup()
-                .addGap(22, 22, 22)
+                .addGap(20, 20, 20)
+                .addComponent(lblNRound)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(pnlStageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblConcorrente1)
                     .addComponent(lblConcorrente2))
-                .addGap(117, 117, 117)
+                .addGap(91, 91, 91)
                 .addGroup(pnlStageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblIconaConcorrente1)
                     .addComponent(lblIconaConcorrente2))
@@ -179,6 +193,7 @@ public class FrmStage extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnProssimoRoundActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProssimoRoundActionPerformed
+        ScriviRound();
         GestioneTorneo.getTorneo().registraVincitore(round.getVincitore());
         concorrentiAttuali = null;
         concorrentiAttuali = GestioneTorneo.getTorneo().prossimoRound();
@@ -219,6 +234,12 @@ public class FrmStage extends javax.swing.JFrame {
         t.start();
     }//GEN-LAST:event_btnAvviaRoundActionPerformed
 
+    public void ScriviRound(){
+        nRound++;
+        if(nRound == 5)lblNRound.setText("Finale");
+        else if(nRound == 4)lblNRound.setText("Semi Finale");
+        else if(nRound < 4) lblNRound.setText("Round " + nRound); 
+    }
     /**
      * @param args the command line arguments
      */
@@ -251,6 +272,7 @@ public class FrmStage extends javax.swing.JFrame {
     private javax.swing.JLabel lblConcorrente2;
     private javax.swing.JLabel lblIconaConcorrente1;
     private javax.swing.JLabel lblIconaConcorrente2;
+    private javax.swing.JLabel lblNRound;
     private javax.swing.JProgressBar pb1;
     private javax.swing.JProgressBar pb2;
     private javax.swing.JPanel pnlMenu;
