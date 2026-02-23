@@ -4,6 +4,8 @@
  */
 package aureligiuliagarathread;
 
+import javax.swing.SwingConstants;
+
 /**
  *
  * @author aureli.giulia
@@ -17,6 +19,19 @@ public class FrmVincitore extends javax.swing.JFrame {
      */
     public FrmVincitore() {
         initComponents();
+        // Imposta il messaggio finale nel JLabel
+        String vincitore = GestioneRound.getVincitoreRound().toString();
+        String testoFinale = "<html>"
+        + "<div style='text-align:center;'>"
+        + "<span style='font-size:24px; color:orange;'><b>🏆 Torneo finito! 🏆</b></span><br><br>"
+        + "<span style='font-size:20px;'>Il campione finale è:</span><br>"
+        + "<span style='font-size:26px; color:blue;'><b>" + vincitore + "</b></span>"
+        + "</div>"
+        + "</html>";
+        // Assegna al JLabel
+        lblRisultato.setText(testoFinale);
+        lblRisultato.setHorizontalAlignment(SwingConstants.CENTER);
+        lblIconaCampione.setIcon(GestioneTorneo.getTorneo().getCampione().getIconaTesta());
     }
 
     /**
@@ -28,21 +43,83 @@ public class FrmVincitore extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        pnlCampione = new javax.swing.JPanel();
+        lblIconaCampione = new javax.swing.JLabel();
+        lblRisultato = new javax.swing.JLabel();
+        btnRitornoSchermataIniziale = new javax.swing.JButton();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        pnlCampione.setBackground(new java.awt.Color(102, 102, 102));
+
+        lblIconaCampione.setIcon(new javax.swing.ImageIcon(getClass().getResource("/immagini/icona_testa_hyuna.png"))); // NOI18N
+        lblIconaCampione.setText("jLabel1");
+
+        lblRisultato.setText("lblRisultato");
+
+        btnRitornoSchermataIniziale.setBackground(new java.awt.Color(0, 0, 0));
+        btnRitornoSchermataIniziale.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
+        btnRitornoSchermataIniziale.setForeground(new java.awt.Color(255, 255, 255));
+        btnRitornoSchermataIniziale.setText("TORNA ALLA SCHERMATA INIZIALE ");
+        btnRitornoSchermataIniziale.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.LOWERED, new java.awt.Color(153, 255, 255), new java.awt.Color(153, 255, 255), new java.awt.Color(204, 255, 255), new java.awt.Color(204, 255, 255)));
+        btnRitornoSchermataIniziale.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnRitornoSchermataIniziale.setFocusPainted(false);
+        btnRitornoSchermataIniziale.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRitornoSchermataInizialeActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout pnlCampioneLayout = new javax.swing.GroupLayout(pnlCampione);
+        pnlCampione.setLayout(pnlCampioneLayout);
+        pnlCampioneLayout.setHorizontalGroup(
+            pnlCampioneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlCampioneLayout.createSequentialGroup()
+                .addGap(20, 20, 20)
+                .addComponent(lblRisultato, javax.swing.GroupLayout.PREFERRED_SIZE, 364, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlCampioneLayout.createSequentialGroup()
+                .addGap(0, 27, Short.MAX_VALUE)
+                .addComponent(btnRitornoSchermataIniziale, javax.swing.GroupLayout.PREFERRED_SIZE, 364, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(26, 26, 26))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlCampioneLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(lblIconaCampione, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(108, 108, 108))
+        );
+        pnlCampioneLayout.setVerticalGroup(
+            pnlCampioneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlCampioneLayout.createSequentialGroup()
+                .addGap(41, 41, 41)
+                .addComponent(lblRisultato)
+                .addGap(49, 49, 49)
+                .addComponent(lblIconaCampione)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 195, Short.MAX_VALUE)
+                .addComponent(btnRitornoSchermataIniziale, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(14, 14, 14))
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(pnlCampione, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addComponent(pnlCampione, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnRitornoSchermataInizialeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRitornoSchermataInizialeActionPerformed
+        FrmSchermataIniziale frmSchermataIniziale = new FrmSchermataIniziale();
+        frmSchermataIniziale.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_btnRitornoSchermataInizialeActionPerformed
 
     /**
      * @param args the command line arguments
@@ -70,5 +147,9 @@ public class FrmVincitore extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnRitornoSchermataIniziale;
+    private javax.swing.JLabel lblIconaCampione;
+    private javax.swing.JLabel lblRisultato;
+    private javax.swing.JPanel pnlCampione;
     // End of variables declaration//GEN-END:variables
 }

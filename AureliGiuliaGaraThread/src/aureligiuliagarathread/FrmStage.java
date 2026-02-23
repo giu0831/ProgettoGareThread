@@ -187,9 +187,8 @@ public class FrmStage extends javax.swing.JFrame {
     private void btnProssimoRoundActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProssimoRoundActionPerformed
         GestioneTorneo.getTorneo().registraVincitore(GestioneRound.getVincitoreRound());
         if(!GestioneRound.nuovoRound(pb1, pb2)){
-            JOptionPane.showMessageDialog(this, "torneo finito! \n" + GestioneTorneo.getTorneo().getCampione() + " ha vinto.");
-            FrmSchermataIniziale frmSchermataIniziale = new FrmSchermataIniziale();
-            frmSchermataIniziale.setVisible(true);
+            FrmVincitore frmVincitore = new FrmVincitore();
+            frmVincitore.setVisible(true);
             this.dispose();
         }
         else{

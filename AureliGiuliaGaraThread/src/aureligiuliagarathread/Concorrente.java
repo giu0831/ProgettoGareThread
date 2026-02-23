@@ -14,17 +14,20 @@ public class Concorrente {
     private String nome;
     private Color colore;
     private ImageIcon icona;
+    private ImageIcon iconaTesta;
 
     /**
      * Metodo costruttore della classe Concorrente
      * @param nome nome del concorrente
      * @param colore colore della progress bar utilizzata da lui
      * @param icona immagine del personaggio
+     * @param iconaTesta immagine della testa
      */
-    public Concorrente(String nome, Color colore, ImageIcon icona) {
+    public Concorrente(String nome, Color colore, ImageIcon icona, ImageIcon iconaTesta) {
         this.nome = nome;
         this.colore = colore;
         this.icona = icona;
+        this.iconaTesta = iconaTesta;
     }
 
     /**
@@ -49,6 +52,14 @@ public class Concorrente {
      */
     public ImageIcon getIcona() {
         return icona;
+    }
+
+    /**
+     * Metodo get
+     * @return immagine della testa
+     */
+    public ImageIcon getIconaTesta() {
+        return iconaTesta;
     }
 
     
