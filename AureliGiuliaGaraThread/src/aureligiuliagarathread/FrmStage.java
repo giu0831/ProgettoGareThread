@@ -28,7 +28,7 @@ public class FrmStage extends javax.swing.JFrame {
         GestioneRound.nuovoRound(pb1, pb2);
         //scrittura dati iniziali
         ScriviConcorrenti();
-        lblNRound.setText("Round " + GestioneRound.getNRound());
+        scriviRound();
         //creazione coda musica
         GestioneMusica.mischiaCanzoni();
     }
@@ -122,7 +122,7 @@ public class FrmStage extends javax.swing.JFrame {
         lblConcorrente2.setText("nome 2");
 
         lblNRound.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
-        lblNRound.setText("round -");
+        lblNRound.setText("──── round - ────");
 
         javax.swing.GroupLayout pnlStageLayout = new javax.swing.GroupLayout(pnlStage);
         pnlStage.setLayout(pnlStageLayout);
@@ -148,7 +148,7 @@ public class FrmStage extends javax.swing.JFrame {
                         .addGap(332, 332, 332)
                         .addComponent(lblConcorrente2))
                     .addGroup(pnlStageLayout.createSequentialGroup()
-                        .addGap(305, 305, 305)
+                        .addGap(236, 236, 236)
                         .addComponent(lblNRound)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -206,7 +206,7 @@ public class FrmStage extends javax.swing.JFrame {
             btnProssimoRound.setEnabled(false);
             if(GestioneRound.getNRound() == 5) btnProssimoRound.setText("VEDI VINCITORE");
         }
-        ScriviRound();
+        scriviRound();
     }//GEN-LAST:event_btnProssimoRoundActionPerformed
 
     private void btnAvviaRoundActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAvviaRoundActionPerformed
@@ -234,10 +234,10 @@ public class FrmStage extends javax.swing.JFrame {
     /**
      * Metodo che aggiorna il label round
      */
-    public void ScriviRound(){
-        if(GestioneRound.getNRound() == 5)lblNRound.setText("Finale");
-        else if(GestioneRound.getNRound() == 4)lblNRound.setText("Semi Finale");
-        else if(GestioneRound.getNRound() < 4) lblNRound.setText("Round " + GestioneRound.getNRound()); 
+    public void scriviRound(){
+        if(GestioneRound.getNRound() == 5)lblNRound.setText("──── Finale ────");
+        else if(GestioneRound.getNRound() == 4)lblNRound.setText("──── Semi Finale ────");
+        else if(GestioneRound.getNRound() < 4) lblNRound.setText("──── Round " + GestioneRound.getNRound() +" ────"); 
     }
     
     /**

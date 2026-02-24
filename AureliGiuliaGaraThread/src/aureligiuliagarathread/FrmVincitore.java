@@ -4,6 +4,7 @@
  */
 package aureligiuliagarathread;
 
+import java.awt.Color;
 import javax.swing.SwingConstants;
 
 /**
@@ -21,11 +22,13 @@ public class FrmVincitore extends javax.swing.JFrame {
         initComponents();
         // Imposta il messaggio finale nel JLabel
         String vincitore = GestioneRound.getVincitoreRound().toString();
+        Color coloreCampione = GestioneTorneo.getTorneo().getCampione().getColore();
+        String coloreHex = String.format("#%02x%02x%02x", coloreCampione.getRed(), coloreCampione.getGreen(), coloreCampione.getBlue());
         String testoFinale = "<html>"
         + "<div style='text-align:center;'>"
         + "<span style='font-size:18px; color:orange;'><b>🏆 Torneo finito! 🏆</b></span><br><br>"
         + "<span style='font-size:18px;'>Il campione finale è:</span><br>"
-        + "<span style='font-size:26px; color:blue;'><b>" + vincitore + "</b></span>"
+        + "<span style='font-size:26px; color:" + coloreHex + ";'><b>" + vincitore + "</b></span>"
         + "</div>"
         + "</html>";
         // Assegna al JLabel

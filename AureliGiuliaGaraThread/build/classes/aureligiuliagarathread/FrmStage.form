@@ -180,7 +180,7 @@
                           <Component id="lblConcorrente2" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="305" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="236" max="-2" attributes="0"/>
                           <Component id="lblNRound" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
@@ -248,7 +248,7 @@
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Dialog" size="24" style="1"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="round -"/>
+            <Property name="text" type="java.lang.String" value="&#x2500;&#x2500;&#x2500;&#x2500; round - &#x2500;&#x2500;&#x2500;&#x2500;"/>
           </Properties>
         </Component>
       </SubComponents>
