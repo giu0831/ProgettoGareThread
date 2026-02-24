@@ -23,6 +23,8 @@ public class FrmSchermataIniziale extends javax.swing.JFrame {
         musica.start();
         musica.setVolume(-20);
         musicaMutata = false;
+        this.setLocationRelativeTo(null);
+
     }
 
     /**

@@ -27,8 +27,8 @@ public class FrmVincitore extends javax.swing.JFrame {
         String coloreHex = String.format("#%02x%02x%02x", coloreCampione.getRed(), coloreCampione.getGreen(), coloreCampione.getBlue());
         String testoFinale = "<html>"
         + "<div style='text-align:center;'>"
-        + "<span style='font-size:18px; color:orange;'><b>🏆 Torneo finito! 🏆</b></span><br><br>"
-        + "<span style='font-size:18px;'>Il campione finale è:</span><br>"
+        + "<span style='font-size:18px; color:white;'><b>🏆 Torneo finito! 🏆</b></span><br><br>"
+        + "<span style='font-size:18px; color:white;'>Il campione finale è:</span><br>"
         + "<span style='font-size:26px; color:" + coloreHex + ";'><b>" + vincitore + "</b></span>"
         + "</div>"
         + "</html>";
@@ -39,6 +39,7 @@ public class FrmVincitore extends javax.swing.JFrame {
         musica = new MusicaSottofondo("/suoni/Karma.wav");
         musica.start();
         musica.setVolume(-20);
+        this.setLocationRelativeTo(null);
 
     }
 
@@ -101,16 +102,16 @@ public class FrmVincitore extends javax.swing.JFrame {
                 .addComponent(lblIconaCampione, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(108, 108, 108))
             .addGroup(pnlCampioneLayout.createSequentialGroup()
-                .addGap(20, 20, 20)
+                .addGap(25, 25, 25)
                 .addGroup(pnlCampioneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(pnlCampioneLayout.createSequentialGroup()
                         .addComponent(btnMutaMusica, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 20, Short.MAX_VALUE)
                         .addComponent(btnRitornoSchermataIniziale, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(26, 26, 26))
+                        .addGap(25, 25, 25))
                     .addGroup(pnlCampioneLayout.createSequentialGroup()
                         .addComponent(lblRisultato, javax.swing.GroupLayout.PREFERRED_SIZE, 364, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(33, Short.MAX_VALUE))))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         pnlCampioneLayout.setVerticalGroup(
             pnlCampioneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

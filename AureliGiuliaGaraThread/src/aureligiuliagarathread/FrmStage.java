@@ -22,6 +22,7 @@ public class FrmStage extends javax.swing.JFrame {
      */
     public FrmStage() {
         initComponents();
+        this.setLocationRelativeTo(null);
         //creazione torneo
         GestioneTorneo.nuovoTorneo();
         //creazione round 1
