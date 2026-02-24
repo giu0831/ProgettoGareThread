@@ -13,7 +13,7 @@ import javax.swing.SwingConstants;
 public class FrmVincitore extends javax.swing.JFrame {
     
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(FrmVincitore.class.getName());
-
+    private MusicaSottofondo musica;
     /**
      * Creates new form FrmVincitore
      */
@@ -23,8 +23,8 @@ public class FrmVincitore extends javax.swing.JFrame {
         String vincitore = GestioneRound.getVincitoreRound().toString();
         String testoFinale = "<html>"
         + "<div style='text-align:center;'>"
-        + "<span style='font-size:24px; color:orange;'><b>🏆 Torneo finito! 🏆</b></span><br><br>"
-        + "<span style='font-size:20px;'>Il campione finale è:</span><br>"
+        + "<span style='font-size:18px; color:orange;'><b>🏆 Torneo finito! 🏆</b></span><br><br>"
+        + "<span style='font-size:18px;'>Il campione finale è:</span><br>"
         + "<span style='font-size:26px; color:blue;'><b>" + vincitore + "</b></span>"
         + "</div>"
         + "</html>";
@@ -32,6 +32,10 @@ public class FrmVincitore extends javax.swing.JFrame {
         lblRisultato.setText(testoFinale);
         lblRisultato.setHorizontalAlignment(SwingConstants.CENTER);
         lblIconaCampione.setIcon(GestioneTorneo.getTorneo().getCampione().getIconaTesta());
+        musica = new MusicaSottofondo("/suoni/Karma.wav");
+        musica.start();
+        musica.setVolume(-20);
+
     }
 
     /**
@@ -116,6 +120,7 @@ public class FrmVincitore extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnRitornoSchermataInizialeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRitornoSchermataInizialeActionPerformed
+        if (musica != null) musica.stop();
         FrmSchermataIniziale frmSchermataIniziale = new FrmSchermataIniziale();
         frmSchermataIniziale.setVisible(true);
         this.dispose();
