@@ -12,6 +12,7 @@ public class FrmSchermataIniziale extends javax.swing.JFrame {
     
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(FrmSchermataIniziale.class.getName());
     private MusicaSottofondo musica;
+    private boolean musicaMutata;
     /**
      * Creates new form SchermataIniziale
      */
@@ -21,6 +22,7 @@ public class FrmSchermataIniziale extends javax.swing.JFrame {
         musica = new MusicaSottofondo("/suoni/Black_Sorrow.wav");
         musica.start();
         musica.setVolume(-20);
+        musicaMutata = false;
     }
 
     /**
@@ -35,6 +37,7 @@ public class FrmSchermataIniziale extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         lblTitolo = new javax.swing.JLabel();
         btnAvvia = new javax.swing.JButton();
+        btnMutaMusica = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Schermata iniziale");
@@ -58,18 +61,34 @@ public class FrmSchermataIniziale extends javax.swing.JFrame {
             }
         });
 
+        btnMutaMusica.setBackground(new java.awt.Color(0, 0, 0));
+        btnMutaMusica.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
+        btnMutaMusica.setForeground(new java.awt.Color(255, 255, 255));
+        btnMutaMusica.setText("🔇");
+        btnMutaMusica.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.LOWERED, new java.awt.Color(153, 255, 255), new java.awt.Color(153, 255, 255), new java.awt.Color(204, 255, 255), new java.awt.Color(204, 255, 255)));
+        btnMutaMusica.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnMutaMusica.setFocusPainted(false);
+        btnMutaMusica.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnMutaMusicaActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(25, 25, 25)
-                .addComponent(lblTitolo)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(148, Short.MAX_VALUE)
-                .addComponent(btnAvvia, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(151, 151, 151))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(btnMutaMusica)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnAvvia, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(151, 151, 151))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(lblTitolo)
+                        .addContainerGap(22, Short.MAX_VALUE))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -77,7 +96,9 @@ public class FrmSchermataIniziale extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(lblTitolo)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
-                .addComponent(btnAvvia)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnAvvia)
+                    .addComponent(btnMutaMusica))
                 .addGap(30, 30, 30))
         );
 
@@ -101,6 +122,19 @@ public class FrmSchermataIniziale extends javax.swing.JFrame {
         frmStage.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btnAvviaActionPerformed
+
+    private void btnMutaMusicaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMutaMusicaActionPerformed
+        if(musicaMutata){
+            musica.setVolume(-20);
+            btnMutaMusica.setText("🔇");
+            musicaMutata = false;
+        }
+        else{
+            musica.setVolume(-80);
+            btnMutaMusica.setText("🔊");
+            musicaMutata = true;
+        }
+    }//GEN-LAST:event_btnMutaMusicaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -129,6 +163,7 @@ public class FrmSchermataIniziale extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAvvia;
+    private javax.swing.JButton btnMutaMusica;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lblTitolo;
     // End of variables declaration//GEN-END:variables

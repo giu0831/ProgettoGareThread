@@ -15,6 +15,7 @@ public class FrmVincitore extends javax.swing.JFrame {
     
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(FrmVincitore.class.getName());
     private MusicaSottofondo musica;
+    private boolean musicaMutata;
     /**
      * Creates new form FrmVincitore
      */
@@ -54,6 +55,7 @@ public class FrmVincitore extends javax.swing.JFrame {
         lblIconaCampione = new javax.swing.JLabel();
         lblRisultato = new javax.swing.JLabel();
         btnRitornoSchermataIniziale = new javax.swing.JButton();
+        btnMutaMusica = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -77,22 +79,38 @@ public class FrmVincitore extends javax.swing.JFrame {
             }
         });
 
+        btnMutaMusica.setBackground(new java.awt.Color(0, 0, 0));
+        btnMutaMusica.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
+        btnMutaMusica.setForeground(new java.awt.Color(255, 255, 255));
+        btnMutaMusica.setText("🔇");
+        btnMutaMusica.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.LOWERED, new java.awt.Color(153, 255, 255), new java.awt.Color(153, 255, 255), new java.awt.Color(204, 255, 255), new java.awt.Color(204, 255, 255)));
+        btnMutaMusica.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnMutaMusica.setFocusPainted(false);
+        btnMutaMusica.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnMutaMusicaActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout pnlCampioneLayout = new javax.swing.GroupLayout(pnlCampione);
         pnlCampione.setLayout(pnlCampioneLayout);
         pnlCampioneLayout.setHorizontalGroup(
             pnlCampioneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnlCampioneLayout.createSequentialGroup()
-                .addGap(20, 20, 20)
-                .addComponent(lblRisultato, javax.swing.GroupLayout.PREFERRED_SIZE, 364, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlCampioneLayout.createSequentialGroup()
-                .addGap(0, 27, Short.MAX_VALUE)
-                .addComponent(btnRitornoSchermataIniziale, javax.swing.GroupLayout.PREFERRED_SIZE, 364, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(26, 26, 26))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlCampioneLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(lblIconaCampione, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(108, 108, 108))
+            .addGroup(pnlCampioneLayout.createSequentialGroup()
+                .addGap(20, 20, 20)
+                .addGroup(pnlCampioneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pnlCampioneLayout.createSequentialGroup()
+                        .addComponent(btnMutaMusica, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnRitornoSchermataIniziale, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(26, 26, 26))
+                    .addGroup(pnlCampioneLayout.createSequentialGroup()
+                        .addComponent(lblRisultato, javax.swing.GroupLayout.PREFERRED_SIZE, 364, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(33, Short.MAX_VALUE))))
         );
         pnlCampioneLayout.setVerticalGroup(
             pnlCampioneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -102,7 +120,9 @@ public class FrmVincitore extends javax.swing.JFrame {
                 .addGap(49, 49, 49)
                 .addComponent(lblIconaCampione)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 195, Short.MAX_VALUE)
-                .addComponent(btnRitornoSchermataIniziale, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(pnlCampioneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnRitornoSchermataIniziale, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnMutaMusica, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(14, 14, 14))
         );
 
@@ -128,6 +148,19 @@ public class FrmVincitore extends javax.swing.JFrame {
         frmSchermataIniziale.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btnRitornoSchermataInizialeActionPerformed
+
+    private void btnMutaMusicaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMutaMusicaActionPerformed
+        if(musicaMutata){
+            musica.setVolume(-20);
+            btnMutaMusica.setText("🔇");
+            musicaMutata = false;
+        }
+        else{
+            musica.setVolume(-80);
+            btnMutaMusica.setText("🔊");
+            musicaMutata = true;
+        }
+    }//GEN-LAST:event_btnMutaMusicaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -155,6 +188,7 @@ public class FrmVincitore extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnMutaMusica;
     private javax.swing.JButton btnRitornoSchermataIniziale;
     private javax.swing.JLabel lblIconaCampione;
     private javax.swing.JLabel lblRisultato;

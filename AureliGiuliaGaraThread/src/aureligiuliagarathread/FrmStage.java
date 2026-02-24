@@ -16,6 +16,7 @@ public class FrmStage extends javax.swing.JFrame {
     
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(FrmStage.class.getName());
     private MusicaSottofondo musica;
+    private boolean musicaMutata;
     /**
      * Creates new form FrmStage
      */
@@ -31,6 +32,7 @@ public class FrmStage extends javax.swing.JFrame {
         scriviRound();
         //creazione coda musica
         GestioneMusica.mischiaCanzoni();
+        musicaMutata = false;
     }
 
     /**
@@ -53,6 +55,7 @@ public class FrmStage extends javax.swing.JFrame {
         lblIconaConcorrente1 = new javax.swing.JLabel();
         lblIconaConcorrente2 = new javax.swing.JLabel();
         lblNRound = new javax.swing.JLabel();
+        btnMutaMusica = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Stage");
@@ -124,16 +127,24 @@ public class FrmStage extends javax.swing.JFrame {
         lblNRound.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
         lblNRound.setText("──── round - ────");
 
+        btnMutaMusica.setBackground(new java.awt.Color(0, 0, 0));
+        btnMutaMusica.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
+        btnMutaMusica.setForeground(new java.awt.Color(255, 255, 255));
+        btnMutaMusica.setText("🔇");
+        btnMutaMusica.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.LOWERED, new java.awt.Color(153, 255, 255), new java.awt.Color(153, 255, 255), new java.awt.Color(204, 255, 255), new java.awt.Color(204, 255, 255)));
+        btnMutaMusica.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnMutaMusica.setEnabled(false);
+        btnMutaMusica.setFocusPainted(false);
+        btnMutaMusica.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnMutaMusicaActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout pnlStageLayout = new javax.swing.GroupLayout(pnlStage);
         pnlStage.setLayout(pnlStageLayout);
         pnlStageLayout.setHorizontalGroup(
             pnlStageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlStageLayout.createSequentialGroup()
-                .addGap(33, 33, 33)
-                .addComponent(pb1, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
-                .addComponent(pb2, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(33, 33, 33))
             .addGroup(pnlStageLayout.createSequentialGroup()
                 .addGap(69, 69, 69)
                 .addComponent(lblIconaConcorrente1)
@@ -141,22 +152,33 @@ public class FrmStage extends javax.swing.JFrame {
                 .addComponent(lblIconaConcorrente2)
                 .addGap(107, 107, 107))
             .addGroup(pnlStageLayout.createSequentialGroup()
+                .addGap(33, 33, 33)
                 .addGroup(pnlStageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(pnlStageLayout.createSequentialGroup()
-                        .addGap(116, 116, 116)
-                        .addComponent(lblConcorrente1)
-                        .addGap(332, 332, 332)
-                        .addComponent(lblConcorrente2))
+                        .addGroup(pnlStageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(pnlStageLayout.createSequentialGroup()
+                                .addGap(83, 83, 83)
+                                .addComponent(lblConcorrente1)
+                                .addGap(332, 332, 332)
+                                .addComponent(lblConcorrente2))
+                            .addGroup(pnlStageLayout.createSequentialGroup()
+                                .addComponent(btnMutaMusica)
+                                .addGap(176, 176, 176)
+                                .addComponent(lblNRound)))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(pnlStageLayout.createSequentialGroup()
-                        .addGap(236, 236, 236)
-                        .addComponent(lblNRound)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(pb1, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
+                        .addComponent(pb2, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(33, 33, 33))))
         );
         pnlStageLayout.setVerticalGroup(
             pnlStageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlStageLayout.createSequentialGroup()
                 .addGap(20, 20, 20)
-                .addComponent(lblNRound)
+                .addGroup(pnlStageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblNRound)
+                    .addComponent(btnMutaMusica))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(pnlStageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblConcorrente1)
@@ -204,6 +226,7 @@ public class FrmStage extends javax.swing.JFrame {
             pb2.setValue(0);
             btnAvviaRound.setEnabled(true);
             btnProssimoRound.setEnabled(false);
+            btnMutaMusica.setEnabled(false);
             if(GestioneRound.getNRound() == 5) btnProssimoRound.setText("VEDI VINCITORE");
         }
         scriviRound();
@@ -213,9 +236,12 @@ public class FrmStage extends javax.swing.JFrame {
         GestioneRound.avviaRound();
         musica = new MusicaSottofondo(GestioneMusica.cambiaCanzone());
         musica.start();
-        musica.setVolume(-20);
+        if(musicaMutata)musica.setVolume(-80);
+        else musica.setVolume(-20);
+
         btnAvviaRound.setEnabled(false);
         btnProssimoRound.setEnabled(false);
+        btnMutaMusica.setEnabled(true);
         Thread t = new Thread(() -> {
             while (!GestioneRound.getRound().isFinito()) {
                 try {
@@ -230,6 +256,19 @@ public class FrmStage extends javax.swing.JFrame {
         });
         t.start();
     }//GEN-LAST:event_btnAvviaRoundActionPerformed
+
+    private void btnMutaMusicaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMutaMusicaActionPerformed
+        if(musicaMutata){
+            musica.setVolume(-20);
+            btnMutaMusica.setText("🔇");
+            musicaMutata = false;
+        }
+        else{
+            musica.setVolume(-80);
+            btnMutaMusica.setText("🔊");
+            musicaMutata = true;
+        }
+    }//GEN-LAST:event_btnMutaMusicaActionPerformed
 
     /**
      * Metodo che aggiorna il label round
@@ -278,6 +317,7 @@ public class FrmStage extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAvviaRound;
+    private javax.swing.JButton btnMutaMusica;
     private javax.swing.JButton btnProssimoRound;
     private javax.swing.JLabel lblConcorrente1;
     private javax.swing.JLabel lblConcorrente2;
