@@ -15,6 +15,7 @@ import javax.swing.SwingConstants;
 public class FrmStage extends javax.swing.JFrame {
     
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(FrmStage.class.getName());
+    private MusicaSottofondo musica;
     /**
      * Creates new form FrmStage
      */
@@ -28,6 +29,8 @@ public class FrmStage extends javax.swing.JFrame {
         //scrittura dati iniziali
         ScriviConcorrenti();
         lblNRound.setText("Round " + GestioneRound.getNRound());
+        //creazione coda musica
+        GestioneMusica.mischiaCanzoni();
     }
 
     /**
@@ -188,6 +191,7 @@ public class FrmStage extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnProssimoRoundActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProssimoRoundActionPerformed
+        if (musica != null) musica.stop();
         GestioneTorneo.getTorneo().registraVincitore(GestioneRound.getVincitoreRound());
         if(!GestioneRound.nuovoRound(pb1, pb2)){
             FrmVincitore frmVincitore = new FrmVincitore();
@@ -207,6 +211,9 @@ public class FrmStage extends javax.swing.JFrame {
 
     private void btnAvviaRoundActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAvviaRoundActionPerformed
         GestioneRound.avviaRound();
+        musica = new MusicaSottofondo(GestioneMusica.cambiaCanzone());
+        musica.start();
+        musica.setVolume(-20);
         btnAvviaRound.setEnabled(false);
         btnProssimoRound.setEnabled(false);
         Thread t = new Thread(() -> {
@@ -217,6 +224,7 @@ public class FrmStage extends javax.swing.JFrame {
             }
             javax.swing.SwingUtilities.invokeLater(() -> {
                 btnProssimoRound.setEnabled(true);
+                
                 JOptionPane.showMessageDialog(this, "Round finito! \n" + GestioneRound.getVincitoreRound() + " ha vinto.");
             });
         });
