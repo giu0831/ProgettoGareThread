@@ -253,9 +253,9 @@ public class FrmStage extends javax.swing.JFrame {
                 } catch (InterruptedException e) {}
             }
             javax.swing.SwingUtilities.invokeLater(() -> {
-                btnProssimoRound.setEnabled(true);
-                
-                JOptionPane.showMessageDialog(this, "Round finito! \n" + GestioneRound.getVincitoreRound() + " ha vinto.");
+                btnProssimoRound.setEnabled(true);               
+                FrmVincitoreRound frmVincitoreRound = new FrmVincitoreRound();
+                frmVincitoreRound.setVisible(true);
             });
         });
         t.start();
