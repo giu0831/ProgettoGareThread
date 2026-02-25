@@ -220,7 +220,7 @@ public class FrmStage extends javax.swing.JFrame {
         if (musica != null) musica.stop();
         GestioneTorneo.getTorneo().registraVincitore(GestioneRound.getVincitoreRound());
         if(!GestioneRound.nuovoRound(pb1, pb2)){
-            FrmVincitore frmVincitore = new FrmVincitore();
+            FrmVincitoreTorneo frmVincitore = new FrmVincitoreTorneo();
             frmVincitore.setVisible(true);
             this.dispose();
         }
