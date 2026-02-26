@@ -59,6 +59,7 @@ public class FrmVincitoreTorneo extends javax.swing.JFrame {
         btnMutaMusica = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
 
         pnlCampione.setBackground(new java.awt.Color(102, 102, 102));
 

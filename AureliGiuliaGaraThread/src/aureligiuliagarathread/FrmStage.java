@@ -62,6 +62,7 @@ public class FrmStage extends javax.swing.JFrame {
         setTitle("Stage");
         setBackground(new java.awt.Color(204, 204, 204));
         setName("frmStage"); // NOI18N
+        setResizable(false);
 
         pnlMenu.setBackground(new java.awt.Color(51, 51, 51));
         pnlMenu.setMinimumSize(new java.awt.Dimension(699, 70));
