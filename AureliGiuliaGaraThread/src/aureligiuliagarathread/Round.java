@@ -17,6 +17,7 @@ public class Round {
     private ProgressThread t2;
     private Concorrente vincitore;
     private boolean finito;
+    private boolean pausa;
 
     /**
      * Metodo costruttore della classe Round
@@ -31,6 +32,7 @@ public class Round {
         t1 = new ProgressThread(barra1);
         t2 = new ProgressThread(barra2);
         finito = false;
+        pausa = false;
     }
     
     /**
@@ -94,6 +96,11 @@ public class Round {
     public boolean isFinito() {
         return finito;
     }
+
+    public boolean isPausa() {
+        return pausa;
+    }
+    
     
     /**
      * Metodo che mette in pausa il round
@@ -101,6 +108,7 @@ public class Round {
     public void pausaRound(){
         t1.pausa();
         t2.pausa();
+        pausa = true;
     }
     
     /**
@@ -109,5 +117,6 @@ public class Round {
     public void riprendiRound(){
         t1.riprendi();
         t2.riprendi();
+        pausa = false;
     }
 }

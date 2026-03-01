@@ -49,6 +49,7 @@ public class FrmClassifica extends javax.swing.JFrame {
         lblSfondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Classifica");
         setMinimumSize(new java.awt.Dimension(780, 655));
         setResizable(false);
         getContentPane().setLayout(null);

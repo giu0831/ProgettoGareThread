@@ -68,12 +68,13 @@ public class FrmStage extends javax.swing.JFrame {
         lblNRound = new javax.swing.JLabel();
         btnMutaMusica = new javax.swing.JButton();
         btnVediClassifica = new javax.swing.JButton();
+        btnPausa = new javax.swing.JButton();
         lblSfondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Stage");
         setBackground(new java.awt.Color(204, 204, 204));
-        setMinimumSize(new java.awt.Dimension(701, 520));
+        setMinimumSize(new java.awt.Dimension(710, 520));
         setName("frmStage"); // NOI18N
         setResizable(false);
         getContentPane().setLayout(null);
@@ -249,6 +250,20 @@ public class FrmStage extends javax.swing.JFrame {
             }
         });
 
+        btnPausa.setBackground(new java.awt.Color(0, 0, 0));
+        btnPausa.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
+        btnPausa.setForeground(new java.awt.Color(255, 255, 255));
+        btnPausa.setText("||");
+        btnPausa.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.LOWERED, new java.awt.Color(153, 255, 255), new java.awt.Color(153, 255, 255), new java.awt.Color(204, 255, 255), new java.awt.Color(204, 255, 255)));
+        btnPausa.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnPausa.setEnabled(false);
+        btnPausa.setFocusPainted(false);
+        btnPausa.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPausaActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout pnlMenuSuperioreLayout = new javax.swing.GroupLayout(pnlMenuSuperiore);
         pnlMenuSuperiore.setLayout(pnlMenuSuperioreLayout);
         pnlMenuSuperioreLayout.setHorizontalGroup(
@@ -256,11 +271,13 @@ public class FrmStage extends javax.swing.JFrame {
             .addGroup(pnlMenuSuperioreLayout.createSequentialGroup()
                 .addGap(23, 23, 23)
                 .addComponent(btnMutaMusica)
-                .addGap(27, 27, 27)
-                .addComponent(lblNRound, javax.swing.GroupLayout.PREFERRED_SIZE, 545, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(52, 52, 52)
+                .addComponent(lblNRound, javax.swing.GroupLayout.PREFERRED_SIZE, 495, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnPausa, javax.swing.GroupLayout.DEFAULT_SIZE, 46, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnVediClassifica)
-                .addGap(24, 24, 24))
+                .addGap(18, 18, 18))
         );
         pnlMenuSuperioreLayout.setVerticalGroup(
             pnlMenuSuperioreLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -269,7 +286,8 @@ public class FrmStage extends javax.swing.JFrame {
                 .addGroup(pnlMenuSuperioreLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblNRound)
                     .addComponent(btnMutaMusica)
-                    .addComponent(btnVediClassifica))
+                    .addComponent(btnVediClassifica)
+                    .addComponent(btnPausa))
                 .addContainerGap(12, Short.MAX_VALUE))
         );
 
@@ -301,6 +319,9 @@ public class FrmStage extends javax.swing.JFrame {
             btnAvviaRound.setEnabled(true);
             btnProssimoRound.setEnabled(false);
             btnMutaMusica.setEnabled(false);
+            btnPausa.setEnabled(false);
+            btnPausa.setText("️   ⏸");
+            btnPausa.setHorizontalAlignment(SwingConstants.CENTER);
             prossimoSfondo();
             if(GestioneRound.getNRound() == 5) btnProssimoRound.setText("VEDI VINCITORE");
         }
@@ -317,6 +338,7 @@ public class FrmStage extends javax.swing.JFrame {
         btnAvviaRound.setEnabled(false);
         btnProssimoRound.setEnabled(false);
         btnMutaMusica.setEnabled(true);
+        btnPausa.setEnabled(true);
         Thread t = new Thread(() -> {
             while (!GestioneRound.getRound().isFinito()) {
                 try {
@@ -349,6 +371,19 @@ public class FrmStage extends javax.swing.JFrame {
         FrmClassifica frmClassifica = new FrmClassifica();
         frmClassifica.setVisible(true);
     }//GEN-LAST:event_btnVediClassificaActionPerformed
+
+    private void btnPausaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPausaActionPerformed
+        if(GestioneRound.getRound().isPausa()){
+            GestioneRound.getRound().riprendiRound();
+            btnPausa.setText("️   ⏸");
+            btnPausa.setHorizontalAlignment(SwingConstants.CENTER);
+        }
+        else{
+            GestioneRound.getRound().pausaRound();
+            btnPausa.setText("️   ▶");
+            btnPausa.setHorizontalAlignment(SwingConstants.CENTER);
+        }
+    }//GEN-LAST:event_btnPausaActionPerformed
 
     /**
      * Metodo che aggiorna il label round
@@ -431,6 +466,7 @@ public class FrmStage extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAvviaRound;
     private javax.swing.JButton btnMutaMusica;
+    private javax.swing.JButton btnPausa;
     private javax.swing.JButton btnProssimoRound;
     private javax.swing.JButton btnVediClassifica;
     private javax.swing.JLabel lblConcorrente1;
