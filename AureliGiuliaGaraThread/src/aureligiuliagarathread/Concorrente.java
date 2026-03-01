@@ -15,6 +15,7 @@ public class Concorrente {
     private Color colore;
     private ImageIcon icona;
     private ImageIcon iconaTesta;
+    private ImageIcon iconaClassifica;
 
     /**
      * Metodo costruttore della classe Concorrente
@@ -23,11 +24,12 @@ public class Concorrente {
      * @param icona immagine del personaggio
      * @param iconaTesta immagine della testa
      */
-    public Concorrente(String nome, Color colore, ImageIcon icona, ImageIcon iconaTesta) {
+    public Concorrente(String nome, Color colore, ImageIcon icona, ImageIcon iconaTesta, ImageIcon iconaClassifica) {
         this.nome = nome;
         this.colore = colore;
         this.icona = icona;
         this.iconaTesta = iconaTesta;
+        this.iconaClassifica = iconaClassifica;
     }
 
     /**
@@ -62,6 +64,15 @@ public class Concorrente {
         return iconaTesta;
     }
 
+    /**
+     * Metodo get
+     * @return immagine per la classifica
+     */
+    public ImageIcon getIconaClassifica() {
+        return iconaClassifica;
+    }
+
+    
     
     @Override
     public String toString() {

@@ -4,7 +4,6 @@
  */
 package aureligiuliagarathread;
 
-import javax.swing.JOptionPane;
 import javax.swing.JProgressBar;
 
 /**

@@ -4,6 +4,9 @@
  */
 package aureligiuliagarathread;
 
+import java.util.ArrayList;
+import javax.swing.JLabel;
+
 /**
  *
  * @author utente
@@ -11,12 +14,14 @@ package aureligiuliagarathread;
 public class FrmClassifica extends javax.swing.JFrame {
     
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(FrmClassifica.class.getName());
-
+    private ArrayList<JLabel> listaLabel;
     /**
      * Creates new form FrmClassifica
      */
     public FrmClassifica() {
         initComponents();
+        inizializzazioneListaLabel();
+        aggiornaSchema();
     }
 
     /**
@@ -28,38 +33,136 @@ public class FrmClassifica extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
+        btnAggiornaClassifica = new javax.swing.JButton();
+        btnChiudi = new javax.swing.JButton();
+        lblConcorrente11 = new javax.swing.JLabel();
+        lblConcorrente1 = new javax.swing.JLabel();
+        lblConcorrente2 = new javax.swing.JLabel();
+        lblConcorrente3 = new javax.swing.JLabel();
+        lblConcorrente4 = new javax.swing.JLabel();
+        lblConcorrente5 = new javax.swing.JLabel();
+        lblConcorrente6 = new javax.swing.JLabel();
+        lblConcorrente7 = new javax.swing.JLabel();
+        lblConcorrente8 = new javax.swing.JLabel();
+        lblConcorrente9 = new javax.swing.JLabel();
+        lblConcorrente10 = new javax.swing.JLabel();
+        lblSfondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setMinimumSize(new java.awt.Dimension(780, 655));
+        setResizable(false);
         getContentPane().setLayout(null);
 
-        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        btnAggiornaClassifica.setBackground(new java.awt.Color(0, 0, 0));
+        btnAggiornaClassifica.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
+        btnAggiornaClassifica.setForeground(new java.awt.Color(255, 255, 255));
+        btnAggiornaClassifica.setText("AGGIORNA");
+        btnAggiornaClassifica.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.LOWERED, new java.awt.Color(153, 255, 255), new java.awt.Color(153, 255, 255), new java.awt.Color(204, 255, 255), new java.awt.Color(204, 255, 255)));
+        btnAggiornaClassifica.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnAggiornaClassifica.setFocusPainted(false);
+        btnAggiornaClassifica.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAggiornaClassificaActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnAggiornaClassifica);
+        btnAggiornaClassifica.setBounds(440, 530, 310, 40);
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/immagini/schema_ad_albero.png"))); // NOI18N
+        btnChiudi.setBackground(new java.awt.Color(0, 0, 0));
+        btnChiudi.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
+        btnChiudi.setForeground(new java.awt.Color(255, 255, 255));
+        btnChiudi.setText("CHIUDI");
+        btnChiudi.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.LOWERED, new java.awt.Color(153, 255, 255), new java.awt.Color(153, 255, 255), new java.awt.Color(204, 255, 255), new java.awt.Color(204, 255, 255)));
+        btnChiudi.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnChiudi.setFocusPainted(false);
+        btnChiudi.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnChiudiActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnChiudi);
+        btnChiudi.setBounds(500, 580, 200, 30);
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 858, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 12, Short.MAX_VALUE))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 588, Short.MAX_VALUE)
-                .addContainerGap())
-        );
+        lblConcorrente11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/immagini/icona_classifica_default.png"))); // NOI18N
+        getContentPane().add(lblConcorrente11);
+        lblConcorrente11.setBounds(380, 10, 60, 80);
 
-        getContentPane().add(jPanel1);
-        jPanel1.setBounds(0, 0, 870, 600);
+        lblConcorrente1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/immagini/icona_classifica_default.png"))); // NOI18N
+        getContentPane().add(lblConcorrente1);
+        lblConcorrente1.setBounds(20, 540, 60, 80);
+
+        lblConcorrente2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/immagini/icona_classifica_default.png"))); // NOI18N
+        getContentPane().add(lblConcorrente2);
+        lblConcorrente2.setBounds(120, 540, 60, 80);
+
+        lblConcorrente3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/immagini/icona_classifica_default.png"))); // NOI18N
+        getContentPane().add(lblConcorrente3);
+        lblConcorrente3.setBounds(220, 540, 60, 80);
+
+        lblConcorrente4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/immagini/icona_classifica_default.png"))); // NOI18N
+        getContentPane().add(lblConcorrente4);
+        lblConcorrente4.setBounds(330, 540, 60, 80);
+
+        lblConcorrente5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/immagini/icona_classifica_default.png"))); // NOI18N
+        getContentPane().add(lblConcorrente5);
+        lblConcorrente5.setBounds(490, 320, 60, 80);
+
+        lblConcorrente6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/immagini/icona_classifica_default.png"))); // NOI18N
+        getContentPane().add(lblConcorrente6);
+        lblConcorrente6.setBounds(690, 320, 60, 80);
+
+        lblConcorrente7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/immagini/icona_classifica_default.png"))); // NOI18N
+        getContentPane().add(lblConcorrente7);
+        lblConcorrente7.setBounds(70, 320, 60, 80);
+
+        lblConcorrente8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/immagini/icona_classifica_default.png"))); // NOI18N
+        getContentPane().add(lblConcorrente8);
+        lblConcorrente8.setBounds(280, 320, 60, 80);
+
+        lblConcorrente9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/immagini/icona_classifica_default.png"))); // NOI18N
+        getContentPane().add(lblConcorrente9);
+        lblConcorrente9.setBounds(170, 130, 60, 80);
+
+        lblConcorrente10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/immagini/icona_classifica_default.png"))); // NOI18N
+        getContentPane().add(lblConcorrente10);
+        lblConcorrente10.setBounds(580, 130, 60, 80);
+
+        lblSfondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/immagini/schema_ad_albero.png"))); // NOI18N
+        lblSfondo.setMinimumSize(new java.awt.Dimension(768, 640));
+        getContentPane().add(lblSfondo);
+        lblSfondo.setBounds(-150, 0, 920, 650);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btnAggiornaClassificaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAggiornaClassificaActionPerformed
+        aggiornaSchema();
+    }//GEN-LAST:event_btnAggiornaClassificaActionPerformed
+
+    private void btnChiudiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnChiudiActionPerformed
+        this.dispose();
+    }//GEN-LAST:event_btnChiudiActionPerformed
+
+    public void aggiornaSchema(){
+        for(int i = 0; i < GestioneTorneo.getClassifica().size(); i++){
+            listaLabel.get(i).setIcon(GestioneTorneo.getClassifica().get(i).getIconaClassifica());
+        }
+    }
+    
+    public void inizializzazioneListaLabel(){
+        listaLabel = new ArrayList<>();
+        listaLabel.add(lblConcorrente11);
+        listaLabel.add(lblConcorrente2);
+        listaLabel.add(lblConcorrente3);
+        listaLabel.add(lblConcorrente1);
+        listaLabel.add(lblConcorrente4);
+        listaLabel.add(lblConcorrente5);
+        listaLabel.add(lblConcorrente6);
+        listaLabel.add(lblConcorrente7);
+        listaLabel.add(lblConcorrente8);
+        listaLabel.add(lblConcorrente9);
+        listaLabel.add(lblConcorrente10);
+    }
     /**
      * @param args the command line arguments
      */
@@ -86,7 +189,19 @@ public class FrmClassifica extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JPanel jPanel1;
+    private javax.swing.JButton btnAggiornaClassifica;
+    private javax.swing.JButton btnChiudi;
+    private javax.swing.JLabel lblConcorrente1;
+    private javax.swing.JLabel lblConcorrente10;
+    private javax.swing.JLabel lblConcorrente11;
+    private javax.swing.JLabel lblConcorrente2;
+    private javax.swing.JLabel lblConcorrente3;
+    private javax.swing.JLabel lblConcorrente4;
+    private javax.swing.JLabel lblConcorrente5;
+    private javax.swing.JLabel lblConcorrente6;
+    private javax.swing.JLabel lblConcorrente7;
+    private javax.swing.JLabel lblConcorrente8;
+    private javax.swing.JLabel lblConcorrente9;
+    private javax.swing.JLabel lblSfondo;
     // End of variables declaration//GEN-END:variables
 }

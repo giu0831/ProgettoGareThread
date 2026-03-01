@@ -67,6 +67,7 @@ public class FrmStage extends javax.swing.JFrame {
         pnlMenuSuperiore = new javax.swing.JPanel();
         lblNRound = new javax.swing.JLabel();
         btnMutaMusica = new javax.swing.JButton();
+        btnVediClassifica = new javax.swing.JButton();
         lblSfondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -235,6 +236,19 @@ public class FrmStage extends javax.swing.JFrame {
             }
         });
 
+        btnVediClassifica.setBackground(new java.awt.Color(0, 0, 0));
+        btnVediClassifica.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
+        btnVediClassifica.setForeground(new java.awt.Color(255, 255, 255));
+        btnVediClassifica.setText("📊");
+        btnVediClassifica.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.LOWERED, new java.awt.Color(153, 255, 255), new java.awt.Color(153, 255, 255), new java.awt.Color(204, 255, 255), new java.awt.Color(204, 255, 255)));
+        btnVediClassifica.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnVediClassifica.setFocusPainted(false);
+        btnVediClassifica.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnVediClassificaActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout pnlMenuSuperioreLayout = new javax.swing.GroupLayout(pnlMenuSuperiore);
         pnlMenuSuperiore.setLayout(pnlMenuSuperioreLayout);
         pnlMenuSuperioreLayout.setHorizontalGroup(
@@ -244,7 +258,9 @@ public class FrmStage extends javax.swing.JFrame {
                 .addComponent(btnMutaMusica)
                 .addGap(27, 27, 27)
                 .addComponent(lblNRound, javax.swing.GroupLayout.PREFERRED_SIZE, 545, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(78, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnVediClassifica)
+                .addGap(24, 24, 24))
         );
         pnlMenuSuperioreLayout.setVerticalGroup(
             pnlMenuSuperioreLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -252,7 +268,8 @@ public class FrmStage extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(pnlMenuSuperioreLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblNRound)
-                    .addComponent(btnMutaMusica))
+                    .addComponent(btnMutaMusica)
+                    .addComponent(btnVediClassifica))
                 .addContainerGap(12, Short.MAX_VALUE))
         );
 
@@ -268,7 +285,10 @@ public class FrmStage extends javax.swing.JFrame {
 
     private void btnProssimoRoundActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProssimoRoundActionPerformed
         if (musica != null) musica.stop();
+        //registro il vincitore del round attuale
         GestioneTorneo.getTorneo().registraVincitore(GestioneRound.getVincitoreRound());
+        //aggiorno la classifica
+        GestioneTorneo.aggiungiRisultato(GestioneRound.getVincitoreRound());
         if(!GestioneRound.nuovoRound(pb1, pb2)){
             FrmVincitoreTorneo frmVincitore = new FrmVincitoreTorneo();
             frmVincitore.setVisible(true);
@@ -324,6 +344,11 @@ public class FrmStage extends javax.swing.JFrame {
             musicaMutata = true;
         }
     }//GEN-LAST:event_btnMutaMusicaActionPerformed
+
+    private void btnVediClassificaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVediClassificaActionPerformed
+        FrmClassifica frmClassifica = new FrmClassifica();
+        frmClassifica.setVisible(true);
+    }//GEN-LAST:event_btnVediClassificaActionPerformed
 
     /**
      * Metodo che aggiorna il label round
@@ -407,6 +432,7 @@ public class FrmStage extends javax.swing.JFrame {
     private javax.swing.JButton btnAvviaRound;
     private javax.swing.JButton btnMutaMusica;
     private javax.swing.JButton btnProssimoRound;
+    private javax.swing.JButton btnVediClassifica;
     private javax.swing.JLabel lblConcorrente1;
     private javax.swing.JLabel lblConcorrente2;
     private javax.swing.JLabel lblIconaConcorrente1;
