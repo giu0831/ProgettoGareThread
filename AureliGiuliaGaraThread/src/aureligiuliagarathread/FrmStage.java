@@ -260,7 +260,6 @@ public class FrmStage extends javax.swing.JFrame {
         pnlMenuSuperiore.setBounds(0, 0, 700, 50);
 
         lblSfondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/immagini/stage1.png"))); // NOI18N
-        lblSfondo.setText("jLabel1");
         getContentPane().add(lblSfondo);
         lblSfondo.setBounds(0, 40, 700, 380);
 
