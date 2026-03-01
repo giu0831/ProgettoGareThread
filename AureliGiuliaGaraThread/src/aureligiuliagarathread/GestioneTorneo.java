@@ -7,14 +7,14 @@ package aureligiuliagarathread;
 import java.util.*;
 import javax.swing.ImageIcon;
 /**
- *
+ * Classe che gestisce il torneo
  * @author utente
  */
 public class GestioneTorneo {
-    private static Torneo torneo;
-    private static ArrayList<Concorrente> classifica;
+    private static Torneo torneo; //torneo
+    private static ArrayList<Concorrente> classifica; // classifica dei concorrenti (sono messi con l'ordine in cui andranno caricati una volta aperto il form classifica)
     /**
-     * Metodo che fa riiniziare il torneo
+     * Metodo che fa iniziare un torneo
      */
     public static void nuovoTorneo() {
         //creazione dei personaggi
@@ -27,6 +27,7 @@ public class GestioneTorneo {
         partecipanti.add(new Concorrente("Hyuna", java.awt.Color.decode("#f5540a"), new ImageIcon(GestioneTorneo.class.getResource("/immagini/icona_hyuna.png")), new ImageIcon(GestioneTorneo.class.getResource("/immagini/icona_testa_hyuna.png")), new ImageIcon(GestioneTorneo.class.getResource("/immagini/icona_classifica_hyuna.png"))));
         //crea il torneo con tutti i personaggi
         torneo = new Torneo(partecipanti); 
+        //viene segnato l'ordine iniziale dei concorrenti
         classifica = new ArrayList<>(torneo.getPartecipanti());
    }
 

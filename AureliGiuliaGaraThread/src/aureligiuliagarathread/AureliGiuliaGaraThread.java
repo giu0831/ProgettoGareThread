@@ -14,7 +14,7 @@ public class AureliGiuliaGaraThread {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        /* Create and display the form */
+        //apertura form schermata iniziale
         java.awt.EventQueue.invokeLater(() -> new FrmSchermataIniziale().setVisible(true));
     }
     

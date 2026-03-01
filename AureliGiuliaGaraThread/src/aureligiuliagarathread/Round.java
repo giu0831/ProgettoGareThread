@@ -77,26 +77,50 @@ public class Round {
         else return null;
     }
 
+    /**
+     * Metodo get
+     * @return primo concorrente 
+     */
     public Concorrente getC1() {
         return c1;
     }
 
+    /**
+     * Metodo get
+     * @return secondo concorrente
+     */
     public Concorrente getC2() {
         return c2;
     }
 
+    /**
+     * Metodo get
+     * @return thread del primo concorrente 
+     */
     public ProgressThread getT1() {
         return t1;
     }
 
+    /**
+     * Metodo get
+     * @return thread del secondo concorrente
+     */
     public ProgressThread getT2() {
         return t2;
     }
 
+    /**
+     * Metodo get
+     * @return stato del round, finito o no
+     */
     public boolean isFinito() {
         return finito;
     }
 
+    /**
+     * Metodo get
+     * @return stato del round, in pausa o no
+     */
     public boolean isPausa() {
         return pausa;
     }

@@ -14,8 +14,8 @@ import javax.swing.SwingConstants;
 public class FrmVincitoreTorneo extends javax.swing.JFrame {
     
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(FrmVincitoreTorneo.class.getName());
-    private MusicaSottofondo musica;
-    private boolean musicaMutata;
+    private MusicaSottofondo musica; //variabile per la musica
+    private boolean musicaMutata; //variabile per controllare se la musica e' mutata
     /**
      * Creates new form FrmVincitore
      */
@@ -35,7 +35,9 @@ public class FrmVincitoreTorneo extends javax.swing.JFrame {
         // Assegna al JLabel
         lblRisultato.setText(testoFinale);
         lblRisultato.setHorizontalAlignment(SwingConstants.CENTER);
+        //mette l'icona del concorrente
         lblIconaCampione.setIcon(GestioneTorneo.getTorneo().getCampione().getIconaTesta());
+        //fa partire la musica
         musica = new MusicaSottofondo("/suoni/Karma.wav");
         musica.start();
         musica.setVolume(-20);
@@ -66,8 +68,6 @@ public class FrmVincitoreTorneo extends javax.swing.JFrame {
 
         lblIconaCampione.setIcon(new javax.swing.ImageIcon(getClass().getResource("/immagini/icona_testa_hyuna.png"))); // NOI18N
         lblIconaCampione.setText("jLabel1");
-
-        lblRisultato.setText("lblRisultato");
 
         btnRitornoSchermataIniziale.setBackground(new java.awt.Color(0, 0, 0));
         btnRitornoSchermataIniziale.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
@@ -122,7 +122,7 @@ public class FrmVincitoreTorneo extends javax.swing.JFrame {
                 .addComponent(lblRisultato)
                 .addGap(49, 49, 49)
                 .addComponent(lblIconaCampione)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 170, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 186, Short.MAX_VALUE)
                 .addGroup(pnlCampioneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnRitornoSchermataIniziale, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnMutaMusica, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -146,19 +146,24 @@ public class FrmVincitoreTorneo extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnRitornoSchermataInizialeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRitornoSchermataInizialeActionPerformed
+        //ferma la musica
         if (musica != null) musica.stop();
+        //apre il form della schermata iniziale
         FrmSchermataIniziale frmSchermataIniziale = new FrmSchermataIniziale();
         frmSchermataIniziale.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btnRitornoSchermataInizialeActionPerformed
 
     private void btnMutaMusicaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMutaMusicaActionPerformed
+        //controllo per vedere se la musica e' mutata
         if(musicaMutata){
+            //alza ill volume
             musica.setVolume(-20);
             btnMutaMusica.setText("🔇");
             musicaMutata = false;
         }
         else{
+            //muta la musica
             musica.setVolume(-80);
             btnMutaMusica.setText("🔊");
             musicaMutata = true;

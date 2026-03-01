@@ -7,7 +7,7 @@ package aureligiuliagarathread;
 import java.awt.Color;
 
 /**
- *
+ * 
  * @author aureli.giulia
  */
 public class FrmVincitoreRound extends javax.swing.JFrame {
@@ -104,6 +104,7 @@ public class FrmVincitoreRound extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnContinuaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnContinuaActionPerformed
+        //chiude il form
         this.dispose();
     }//GEN-LAST:event_btnContinuaActionPerformed
 

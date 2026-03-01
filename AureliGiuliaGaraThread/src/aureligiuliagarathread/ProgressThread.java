@@ -12,8 +12,8 @@ import javax.swing.SwingUtilities;
  * @author utente
  */
 public class ProgressThread extends Thread{
-    private JProgressBar barra;
-    private volatile boolean pausa;
+    private JProgressBar barra; // progress bar legata al thread
+    private volatile boolean pausa; 
     private volatile boolean finito;
     private volatile boolean stop;
     private int ritardo;

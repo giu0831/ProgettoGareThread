@@ -17,9 +17,9 @@ import javax.swing.SwingConstants;
 public class FrmStage extends javax.swing.JFrame {
     
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(FrmStage.class.getName());
-    private MusicaSottofondo musica;
-    private boolean musicaMutata;
-    private Queue<ImageIcon> sfondi;
+    private MusicaSottofondo musica; //variabile per la musica
+    private boolean musicaMutata; //variabile per controllare se la musica e' mutata
+    private Queue<ImageIcon> sfondi; //variabile per gli sfondi
     /**
      * Creates new form FrmStage
      */
@@ -302,18 +302,23 @@ public class FrmStage extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnProssimoRoundActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProssimoRoundActionPerformed
+        //la musica viene fermata
         if (musica != null) musica.stop();
         //registro il vincitore del round attuale
         GestioneTorneo.getTorneo().registraVincitore(GestioneRound.getVincitoreRound());
         //aggiorno la classifica
         GestioneTorneo.aggiungiRisultato(GestioneRound.getVincitoreRound());
+        //controllo per vedere se si riesce a creare un nuovo round
         if(!GestioneRound.nuovoRound(pb1, pb2)){
+            //apertura form vincitore torneo
             FrmVincitoreTorneo frmVincitore = new FrmVincitoreTorneo();
             frmVincitore.setVisible(true);
             this.dispose();
         }
         else{
+            //scrittura delle informazioni dei concorrenti
             ScriviConcorrenti();
+            //settaggi degli oggetti
             pb1.setValue(0);
             pb2.setValue(0);
             btnAvviaRound.setEnabled(true);
@@ -323,22 +328,28 @@ public class FrmStage extends javax.swing.JFrame {
             btnPausa.setText("️   ⏸");
             btnPausa.setHorizontalAlignment(SwingConstants.CENTER);
             prossimoSfondo();
+            //se questo e' l'ultimo round cambia la scritta del bottone 
             if(GestioneRound.getNRound() == 5) btnProssimoRound.setText("VEDI VINCITORE");
         }
+        //aggiorna la scritta del round
         scriviRound();
     }//GEN-LAST:event_btnProssimoRoundActionPerformed
 
     private void btnAvviaRoundActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAvviaRoundActionPerformed
+        //il round viene avviato
         GestioneRound.avviaRound();
+        //la musica viene avviata
         musica = new MusicaSottofondo(GestioneMusica.cambiaCanzone());
         musica.start();
+        //se lamusica era stata precedentemente mutata, resta mutata
         if(musicaMutata)musica.setVolume(-80);
         else musica.setVolume(-20);
-
+        //settaggi bottoni
         btnAvviaRound.setEnabled(false);
         btnProssimoRound.setEnabled(false);
         btnMutaMusica.setEnabled(true);
         btnPausa.setEnabled(true);
+        //creazione thread che controlla quando uno dei due concorrenti ha finito
         Thread t = new Thread(() -> {
             while (!GestioneRound.getRound().isFinito()) {
                 try {
@@ -346,21 +357,26 @@ public class FrmStage extends javax.swing.JFrame {
                 } catch (InterruptedException e) {}
             }
             javax.swing.SwingUtilities.invokeLater(() -> {
+                //settaggi bottoni
                 btnProssimoRound.setEnabled(true);               
                 FrmVincitoreRound frmVincitoreRound = new FrmVincitoreRound();
                 frmVincitoreRound.setVisible(true);
             });
         });
+        //avvio il thread
         t.start();
     }//GEN-LAST:event_btnAvviaRoundActionPerformed
 
     private void btnMutaMusicaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMutaMusicaActionPerformed
+        //controllo per vedere se la musica e' mutata
         if(musicaMutata){
+            //alza ill volume
             musica.setVolume(-20);
             btnMutaMusica.setText("🔇");
             musicaMutata = false;
         }
         else{
+            //muta la musica
             musica.setVolume(-80);
             btnMutaMusica.setText("🔊");
             musicaMutata = true;
@@ -368,17 +384,21 @@ public class FrmStage extends javax.swing.JFrame {
     }//GEN-LAST:event_btnMutaMusicaActionPerformed
 
     private void btnVediClassificaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVediClassificaActionPerformed
+        //apertura form classifica
         FrmClassifica frmClassifica = new FrmClassifica();
         frmClassifica.setVisible(true);
     }//GEN-LAST:event_btnVediClassificaActionPerformed
 
     private void btnPausaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPausaActionPerformed
+        //controlla se il round e' gia' in pausa
         if(GestioneRound.getRound().isPausa()){
+            //riprende il round
             GestioneRound.getRound().riprendiRound();
             btnPausa.setText("️   ⏸");
             btnPausa.setHorizontalAlignment(SwingConstants.CENTER);
         }
         else{
+            //mette in pausa il round
             GestioneRound.getRound().pausaRound();
             btnPausa.setText("️   ▶");
             btnPausa.setHorizontalAlignment(SwingConstants.CENTER);
@@ -389,6 +409,7 @@ public class FrmStage extends javax.swing.JFrame {
      * Metodo che aggiorna il label round
      */
     public void scriviRound(){
+        //controllo numero round attuale
         if(GestioneRound.getNRound() == 5){
             lblNRound.setText("──── Finale ────");
             lblNRound.setHorizontalAlignment(SwingConstants.CENTER);
@@ -407,6 +428,7 @@ public class FrmStage extends javax.swing.JFrame {
      * Metodo che aggiorna i componenti in base ai concorrenti
      */
     public void ScriviConcorrenti(){
+        //settaggi dei componenti in base ai concorrenti
         lblConcorrente1.setText(GestioneRound.getConcorrentiAttuali()[0].getNome());
         lblConcorrente1.setHorizontalAlignment(SwingConstants.CENTER);
         lblConcorrente2.setText(GestioneRound.getConcorrentiAttuali()[1].getNome());
@@ -423,11 +445,13 @@ public class FrmStage extends javax.swing.JFrame {
      */
     public ArrayList<ImageIcon> getListaSfondi(){
         ArrayList<ImageIcon> sfondi = new ArrayList<>();
+        //aggiunta di tutti gli sfondi
         sfondi.add(new ImageIcon(getClass().getResource("/immagini/stage1.png")));
         sfondi.add(new ImageIcon(getClass().getResource("/immagini/stage2.png")));
         sfondi.add(new ImageIcon(getClass().getResource("/immagini/stage3.png")));
         sfondi.add(new ImageIcon(getClass().getResource("/immagini/stage4.png")));
         sfondi.add(new ImageIcon(getClass().getResource("/immagini/stage5.png")));
+        //gli sfondi vengono mischiati
         Collections.shuffle(sfondi);
         return sfondi;
     }
@@ -436,6 +460,7 @@ public class FrmStage extends javax.swing.JFrame {
      * Metodo per passare allo sfondo successivo
      */
     public void prossimoSfondo(){
+        //si passa al prossimo sfondo
         lblSfondo.setIcon(sfondi.poll());
     }
     /**

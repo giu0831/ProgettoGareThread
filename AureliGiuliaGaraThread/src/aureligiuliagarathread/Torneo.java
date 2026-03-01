@@ -6,11 +6,9 @@ import java.util.*;
  * @author utente
  */
 public class Torneo {
-    //coda con i concorrenti
-    private Queue<Concorrente> coda;
+    private Queue<Concorrente> coda; //coda con i concorrenti
     private Concorrente campione;
-    //lista che contiene tutti i concorrenti che hanno partecipato
-    private List<Concorrente> partecipantiOriginali;
+    private List<Concorrente> partecipantiOriginali; //lista che contiene tutti i concorrenti che hanno partecipato
 
     /**
      * Metodo costruttore

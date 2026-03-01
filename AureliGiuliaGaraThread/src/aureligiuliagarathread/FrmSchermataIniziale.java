@@ -11,8 +11,8 @@ package aureligiuliagarathread;
 public class FrmSchermataIniziale extends javax.swing.JFrame {
     
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(FrmSchermataIniziale.class.getName());
-    private MusicaSottofondo musica;
-    private boolean musicaMutata;
+    private MusicaSottofondo musica; //variabile per la musica
+    private boolean musicaMutata; // variabile per vedere se la musica e' mutata
     /**
      * Creates new form SchermataIniziale
      */
@@ -21,6 +21,7 @@ public class FrmSchermataIniziale extends javax.swing.JFrame {
         // Avvia la musica di sottofondo appena parte la finestra
         musica = new MusicaSottofondo("/suoni/Black_Sorrow.wav");
         musica.start();
+        //riduzione del volume
         musica.setVolume(-20);
         musicaMutata = false;
         this.setLocationRelativeTo(null);
@@ -120,6 +121,7 @@ public class FrmSchermataIniziale extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnAvviaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAvviaActionPerformed
+        //la musica viene fermata
         if (musica != null) musica.stop();
         FrmStage frmStage = new FrmStage();
         frmStage.setVisible(true);
@@ -127,12 +129,15 @@ public class FrmSchermataIniziale extends javax.swing.JFrame {
     }//GEN-LAST:event_btnAvviaActionPerformed
 
     private void btnMutaMusicaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMutaMusicaActionPerformed
+        //controllo per vedere se la musica e' mutata
         if(musicaMutata){
+            //alza ill volume
             musica.setVolume(-20);
             btnMutaMusica.setText("🔇");
             musicaMutata = false;
         }
         else{
+            //muta la musica
             musica.setVolume(-80);
             btnMutaMusica.setText("🔊");
             musicaMutata = true;

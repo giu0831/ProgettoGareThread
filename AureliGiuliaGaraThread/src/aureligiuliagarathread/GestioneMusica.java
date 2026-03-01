@@ -9,10 +9,11 @@ import java.util.*;
  * @author utente
  */
 public class GestioneMusica {
-    private static List<String> listaCanzoni;
-    private static Queue<String> codaCanzoni;
+    private static List<String> listaCanzoni; //lista di canzoni possibili
+    private static Queue<String> codaCanzoni; //ordine delle canzoni
     
     static{
+        //vengono aggiunte i percorsi delle canzoni
         listaCanzoni = new ArrayList<>();
         listaCanzoni.add("/suoni/My_Clematis.wav");
         listaCanzoni.add("/suoni/Unknown.wav");
@@ -25,10 +26,16 @@ public class GestioneMusica {
      * Metodo che cambia l'ordine delle canzoni
      */
     public static void mischiaCanzoni(){
+        //le canzoni vengono mischiate
         Collections.shuffle(listaCanzoni);
+        //viene creata una coda con la lista appenamischiata
         codaCanzoni = new LinkedList<>(listaCanzoni);
     }
     
+    /**
+     * Metodo per passare alla canzone successiva
+     * @return canzone successiva
+     */
     public static String cambiaCanzone(){
         return codaCanzoni.poll();
     }

@@ -14,13 +14,15 @@ import javax.swing.JLabel;
 public class FrmClassifica extends javax.swing.JFrame {
     
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(FrmClassifica.class.getName());
-    private ArrayList<JLabel> listaLabel;
+    private ArrayList<JLabel> listaLabel; //lista che contiene tutti i label
     /**
      * Creates new form FrmClassifica
      */
     public FrmClassifica() {
         initComponents();
+        //inizializzo la lista dei label
         inizializzazioneListaLabel();
+        //aggiorno le immagini 
         aggiornaSchema();
     }
 
@@ -137,21 +139,31 @@ public class FrmClassifica extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnAggiornaClassificaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAggiornaClassificaActionPerformed
+        //aggiorno le immagini
         aggiornaSchema();
     }//GEN-LAST:event_btnAggiornaClassificaActionPerformed
 
     private void btnChiudiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnChiudiActionPerformed
+        //chiudo il form
         this.dispose();
     }//GEN-LAST:event_btnChiudiActionPerformed
 
+    /**
+     * Metodo che aggiorna le immagini
+     */
     public void aggiornaSchema(){
+        //ciclo che per ogni concorrente salvato nella classifica aggiorna le relative immagini
         for(int i = 0; i < GestioneTorneo.getClassifica().size(); i++){
             listaLabel.get(i).setIcon(GestioneTorneo.getClassifica().get(i).getIconaClassifica());
         }
     }
     
+    /**
+     * Metodo che inizializza la lista dei label
+     */
     public void inizializzazioneListaLabel(){
         listaLabel = new ArrayList<>();
+        //aggiunta di tutti i label
         listaLabel.add(lblConcorrente1);
         listaLabel.add(lblConcorrente2);
         listaLabel.add(lblConcorrente3);

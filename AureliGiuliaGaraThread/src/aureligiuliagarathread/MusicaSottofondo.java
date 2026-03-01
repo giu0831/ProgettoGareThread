@@ -28,15 +28,21 @@ public class MusicaSottofondo {
             clip = AudioSystem.getClip();
             clip.open(audio);
             clip.loop(Clip.LOOP_CONTINUOUSLY); // loop infinito
-        } catch (UnsupportedAudioFileException | IOException | LineUnavailableException e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
+    /**
+     * Metodo per far partire la musica
+     */
     public void start() {
         if (clip != null) clip.start();
     }
 
+    /**
+     * Metodo per fermare la musica
+     */
     public void stop() {
         if (clip != null) clip.stop();
     }
