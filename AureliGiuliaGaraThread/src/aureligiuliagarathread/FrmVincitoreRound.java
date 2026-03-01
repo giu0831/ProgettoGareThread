@@ -48,6 +48,7 @@ public class FrmVincitoreRound extends javax.swing.JFrame {
         btnContinua = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Vincitore round");
         setResizable(false);
 
         jPanel1.setBackground(new java.awt.Color(102, 102, 102));
