@@ -44,8 +44,8 @@ public class FrmClassifica extends javax.swing.JFrame {
         lblConcorrente6 = new javax.swing.JLabel();
         lblConcorrente7 = new javax.swing.JLabel();
         lblConcorrente8 = new javax.swing.JLabel();
-        lblConcorrente9 = new javax.swing.JLabel();
         lblConcorrente10 = new javax.swing.JLabel();
+        lblConcorrente9 = new javax.swing.JLabel();
         lblSfondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -119,13 +119,13 @@ public class FrmClassifica extends javax.swing.JFrame {
         getContentPane().add(lblConcorrente8);
         lblConcorrente8.setBounds(280, 320, 60, 80);
 
-        lblConcorrente9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/immagini/icona_classifica_default.png"))); // NOI18N
-        getContentPane().add(lblConcorrente9);
-        lblConcorrente9.setBounds(170, 130, 60, 80);
-
         lblConcorrente10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/immagini/icona_classifica_default.png"))); // NOI18N
         getContentPane().add(lblConcorrente10);
-        lblConcorrente10.setBounds(580, 130, 60, 80);
+        lblConcorrente10.setBounds(170, 130, 60, 80);
+
+        lblConcorrente9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/immagini/icona_classifica_default.png"))); // NOI18N
+        getContentPane().add(lblConcorrente9);
+        lblConcorrente9.setBounds(580, 130, 60, 80);
 
         lblSfondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/immagini/schema_ad_albero.png"))); // NOI18N
         lblSfondo.setMinimumSize(new java.awt.Dimension(768, 640));
@@ -151,10 +151,9 @@ public class FrmClassifica extends javax.swing.JFrame {
     
     public void inizializzazioneListaLabel(){
         listaLabel = new ArrayList<>();
-        listaLabel.add(lblConcorrente11);
+        listaLabel.add(lblConcorrente1);
         listaLabel.add(lblConcorrente2);
         listaLabel.add(lblConcorrente3);
-        listaLabel.add(lblConcorrente1);
         listaLabel.add(lblConcorrente4);
         listaLabel.add(lblConcorrente5);
         listaLabel.add(lblConcorrente6);
@@ -162,6 +161,7 @@ public class FrmClassifica extends javax.swing.JFrame {
         listaLabel.add(lblConcorrente8);
         listaLabel.add(lblConcorrente9);
         listaLabel.add(lblConcorrente10);
+        listaLabel.add(lblConcorrente11);
     }
     /**
      * @param args the command line arguments

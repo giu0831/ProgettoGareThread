@@ -10,7 +10,7 @@ public class Torneo {
     private Queue<Concorrente> coda;
     private Concorrente campione;
     //lista che contiene tutti i concorrenti che hanno partecipato
-    private final List<Concorrente> partecipantiOriginali;
+    private List<Concorrente> partecipantiOriginali;
 
     /**
      * Metodo costruttore
@@ -19,8 +19,8 @@ public class Torneo {
     public Torneo(List<Concorrente> partecipanti) {
         partecipantiOriginali = new ArrayList<>(partecipanti);
         //mette in ordine casuale i concorrenti
-        Collections.shuffle(partecipanti);
-        coda = new LinkedList<>(partecipanti);
+        Collections.shuffle(partecipantiOriginali);
+        coda = new LinkedList<>(partecipantiOriginali);
         campione = null;
     }
 
