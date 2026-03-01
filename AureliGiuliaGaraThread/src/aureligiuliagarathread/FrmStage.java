@@ -5,6 +5,8 @@
 package aureligiuliagarathread;
 
 import java.awt.BorderLayout;
+import java.util.*;
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import javax.swing.SwingConstants;
 
@@ -17,6 +19,7 @@ public class FrmStage extends javax.swing.JFrame {
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(FrmStage.class.getName());
     private MusicaSottofondo musica;
     private boolean musicaMutata;
+    private Queue<ImageIcon> sfondi;
     /**
      * Creates new form FrmStage
      */
@@ -34,6 +37,9 @@ public class FrmStage extends javax.swing.JFrame {
         //creazione coda musica
         GestioneMusica.mischiaCanzoni();
         musicaMutata = false;
+        //creazione sfondi
+        sfondi = new LinkedList<>(getListaSfondi());
+        lblSfondo.setIcon(sfondi.poll());
     }
 
     /**
@@ -51,7 +57,6 @@ public class FrmStage extends javax.swing.JFrame {
         pnlStage = new javax.swing.JPanel();
         pb2 = new javax.swing.JProgressBar();
         pb1 = new javax.swing.JProgressBar();
-        btnMutaMusica = new javax.swing.JButton();
         pnlConcorrente1 = new javax.swing.JPanel();
         lblIconaConcorrente1 = new javax.swing.JLabel();
         lblConcorrente1 = new javax.swing.JLabel();
@@ -59,16 +64,22 @@ public class FrmStage extends javax.swing.JFrame {
         lblIconaConcorrente2 = new javax.swing.JLabel();
         lblConcorrente2 = new javax.swing.JLabel();
         pnlRound = new javax.swing.JPanel();
+        pnlMenuSuperiore = new javax.swing.JPanel();
         lblNRound = new javax.swing.JLabel();
+        btnMutaMusica = new javax.swing.JButton();
+        lblSfondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Stage");
         setBackground(new java.awt.Color(204, 204, 204));
+        setMinimumSize(new java.awt.Dimension(701, 520));
         setName("frmStage"); // NOI18N
         setResizable(false);
+        getContentPane().setLayout(null);
 
         pnlMenu.setBackground(new java.awt.Color(51, 51, 51));
-        pnlMenu.setMinimumSize(new java.awt.Dimension(699, 70));
+        pnlMenu.setMinimumSize(new java.awt.Dimension(701, 85));
+        pnlMenu.setPreferredSize(new java.awt.Dimension(701, 90));
 
         btnProssimoRound.setBackground(new java.awt.Color(0, 0, 0));
         btnProssimoRound.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
@@ -115,13 +126,100 @@ public class FrmStage extends javax.swing.JFrame {
                 .addGroup(pnlMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnProssimoRound, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnAvviaRound, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(29, Short.MAX_VALUE))
+                .addContainerGap(48, Short.MAX_VALUE))
         );
+
+        getContentPane().add(pnlMenu);
+        pnlMenu.setBounds(0, 410, 701, 100);
 
         pnlStage.setBackground(new java.awt.Color(153, 153, 255));
         pnlStage.setMaximumSize(new java.awt.Dimension(400, 700));
+        pnlStage.setOpaque(false);
+        pnlStage.setPreferredSize(new java.awt.Dimension(701, 369));
 
         pb2.setForeground(new java.awt.Color(255, 51, 0));
+
+        pnlConcorrente1.setBackground(new java.awt.Color(51, 255, 255));
+        pnlConcorrente1.setOpaque(false);
+        pnlConcorrente1.setLayout(new java.awt.BorderLayout());
+
+        lblIconaConcorrente1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblIconaConcorrente1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/immagini/icona_hyuna.png"))); // NOI18N
+        pnlConcorrente1.add(lblIconaConcorrente1, java.awt.BorderLayout.CENTER);
+
+        lblConcorrente1.setBackground(new java.awt.Color(153, 153, 255));
+        lblConcorrente1.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        lblConcorrente1.setForeground(new java.awt.Color(255, 255, 255));
+        lblConcorrente1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblConcorrente1.setText("nome 1");
+        lblConcorrente1.setVerticalAlignment(javax.swing.SwingConstants.TOP);
+        pnlConcorrente1.add(lblConcorrente1, java.awt.BorderLayout.PAGE_START);
+
+        pnlConcorrente2.setBackground(new java.awt.Color(51, 255, 255));
+        pnlConcorrente2.setOpaque(false);
+        pnlConcorrente2.setLayout(new java.awt.BorderLayout());
+
+        lblIconaConcorrente2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblIconaConcorrente2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/immagini/icona_ivan.png"))); // NOI18N
+        pnlConcorrente2.add(lblIconaConcorrente2, java.awt.BorderLayout.CENTER);
+
+        lblConcorrente2.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        lblConcorrente2.setForeground(new java.awt.Color(255, 255, 255));
+        lblConcorrente2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblConcorrente2.setText("nome 2");
+        lblConcorrente2.setVerticalAlignment(javax.swing.SwingConstants.TOP);
+        pnlConcorrente2.add(lblConcorrente2, java.awt.BorderLayout.PAGE_START);
+
+        pnlRound.setBackground(new java.awt.Color(51, 255, 255));
+        pnlRound.setOpaque(false);
+        pnlRound.setLayout(new java.awt.BorderLayout());
+
+        javax.swing.GroupLayout pnlStageLayout = new javax.swing.GroupLayout(pnlStage);
+        pnlStage.setLayout(pnlStageLayout);
+        pnlStageLayout.setHorizontalGroup(
+            pnlStageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlStageLayout.createSequentialGroup()
+                .addGap(35, 35, 35)
+                .addGroup(pnlStageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(pnlConcorrente1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(pb1, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(39, 39, 39)
+                .addGroup(pnlStageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(pb2, javax.swing.GroupLayout.PREFERRED_SIZE, 299, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(pnlConcorrente2, javax.swing.GroupLayout.PREFERRED_SIZE, 299, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(pnlRound, javax.swing.GroupLayout.PREFERRED_SIZE, 545, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        pnlStageLayout.setVerticalGroup(
+            pnlStageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlStageLayout.createSequentialGroup()
+                .addGroup(pnlStageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pnlStageLayout.createSequentialGroup()
+                        .addGap(30, 30, 30)
+                        .addGroup(pnlStageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(pnlConcorrente1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(pnlConcorrente2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addGroup(pnlStageLayout.createSequentialGroup()
+                        .addGap(52, 52, 52)
+                        .addComponent(pnlRound, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 278, Short.MAX_VALUE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(pnlStageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(pb1, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(pb2, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(20, 20, 20))
+        );
+
+        getContentPane().add(pnlStage);
+        pnlStage.setBounds(0, 50, 701, 370);
+
+        pnlMenuSuperiore.setBackground(new java.awt.Color(51, 51, 51));
+
+        lblNRound.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        lblNRound.setForeground(new java.awt.Color(255, 255, 255));
+        lblNRound.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblNRound.setText("──── round - ────");
 
         btnMutaMusica.setBackground(new java.awt.Color(0, 0, 0));
         btnMutaMusica.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
@@ -137,102 +235,34 @@ public class FrmStage extends javax.swing.JFrame {
             }
         });
 
-        pnlConcorrente1.setBackground(new java.awt.Color(51, 255, 255));
-        pnlConcorrente1.setOpaque(false);
-        pnlConcorrente1.setLayout(new java.awt.BorderLayout());
-
-        lblIconaConcorrente1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblIconaConcorrente1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/immagini/icona_hyuna.png"))); // NOI18N
-        pnlConcorrente1.add(lblIconaConcorrente1, java.awt.BorderLayout.CENTER);
-
-        lblConcorrente1.setBackground(new java.awt.Color(153, 153, 255));
-        lblConcorrente1.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        lblConcorrente1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblConcorrente1.setText("nome 1");
-        lblConcorrente1.setVerticalAlignment(javax.swing.SwingConstants.TOP);
-        pnlConcorrente1.add(lblConcorrente1, java.awt.BorderLayout.PAGE_START);
-
-        pnlConcorrente2.setBackground(new java.awt.Color(51, 255, 255));
-        pnlConcorrente2.setOpaque(false);
-        pnlConcorrente2.setLayout(new java.awt.BorderLayout());
-
-        lblIconaConcorrente2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblIconaConcorrente2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/immagini/icona_ivan.png"))); // NOI18N
-        pnlConcorrente2.add(lblIconaConcorrente2, java.awt.BorderLayout.CENTER);
-
-        lblConcorrente2.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        lblConcorrente2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblConcorrente2.setText("nome 2");
-        lblConcorrente2.setVerticalAlignment(javax.swing.SwingConstants.TOP);
-        pnlConcorrente2.add(lblConcorrente2, java.awt.BorderLayout.PAGE_START);
-
-        pnlRound.setBackground(new java.awt.Color(51, 255, 255));
-        pnlRound.setOpaque(false);
-        pnlRound.setLayout(new java.awt.BorderLayout());
-
-        lblNRound.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
-        lblNRound.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblNRound.setText("──── round - ────");
-        pnlRound.add(lblNRound, java.awt.BorderLayout.PAGE_END);
-
-        javax.swing.GroupLayout pnlStageLayout = new javax.swing.GroupLayout(pnlStage);
-        pnlStage.setLayout(pnlStageLayout);
-        pnlStageLayout.setHorizontalGroup(
-            pnlStageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnlStageLayout.createSequentialGroup()
-                .addGap(33, 33, 33)
-                .addGroup(pnlStageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(pnlStageLayout.createSequentialGroup()
-                        .addComponent(btnMutaMusica)
-                        .addGap(18, 18, 18)
-                        .addComponent(pnlRound, javax.swing.GroupLayout.PREFERRED_SIZE, 545, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(pnlStageLayout.createSequentialGroup()
-                        .addGroup(pnlStageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(pnlConcorrente1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(pb1, javax.swing.GroupLayout.DEFAULT_SIZE, 300, Short.MAX_VALUE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(pnlStageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(pb2, javax.swing.GroupLayout.DEFAULT_SIZE, 300, Short.MAX_VALUE)
-                            .addComponent(pnlConcorrente2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                .addGap(33, 33, 33))
+        javax.swing.GroupLayout pnlMenuSuperioreLayout = new javax.swing.GroupLayout(pnlMenuSuperiore);
+        pnlMenuSuperiore.setLayout(pnlMenuSuperioreLayout);
+        pnlMenuSuperioreLayout.setHorizontalGroup(
+            pnlMenuSuperioreLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlMenuSuperioreLayout.createSequentialGroup()
+                .addGap(23, 23, 23)
+                .addComponent(btnMutaMusica)
+                .addGap(27, 27, 27)
+                .addComponent(lblNRound, javax.swing.GroupLayout.PREFERRED_SIZE, 545, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(78, Short.MAX_VALUE))
         );
-        pnlStageLayout.setVerticalGroup(
-            pnlStageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlStageLayout.createSequentialGroup()
-                .addGroup(pnlStageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(pnlStageLayout.createSequentialGroup()
-                        .addGap(20, 20, 20)
-                        .addComponent(btnMutaMusica)
-                        .addGap(17, 17, 17))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlStageLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(pnlRound, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)))
-                .addGroup(pnlStageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(pnlConcorrente1, javax.swing.GroupLayout.DEFAULT_SIZE, 256, Short.MAX_VALUE)
-                    .addComponent(pnlConcorrente2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(pnlStageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(pb1, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(pb2, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(23, 23, 23))
+        pnlMenuSuperioreLayout.setVerticalGroup(
+            pnlMenuSuperioreLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlMenuSuperioreLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(pnlMenuSuperioreLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblNRound)
+                    .addComponent(btnMutaMusica))
+                .addContainerGap(12, Short.MAX_VALUE))
         );
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(pnlStage, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(pnlMenu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(pnlStage, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, 0)
-                .addComponent(pnlMenu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
+        getContentPane().add(pnlMenuSuperiore);
+        pnlMenuSuperiore.setBounds(0, 0, 700, 50);
+
+        lblSfondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/immagini/stage1.png"))); // NOI18N
+        lblSfondo.setText("jLabel1");
+        getContentPane().add(lblSfondo);
+        lblSfondo.setBounds(0, 40, 700, 380);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -252,6 +282,7 @@ public class FrmStage extends javax.swing.JFrame {
             btnAvviaRound.setEnabled(true);
             btnProssimoRound.setEnabled(false);
             btnMutaMusica.setEnabled(false);
+            prossimoSfondo();
             if(GestioneRound.getNRound() == 5) btnProssimoRound.setText("VEDI VINCITORE");
         }
         scriviRound();
@@ -326,6 +357,28 @@ public class FrmStage extends javax.swing.JFrame {
         lblIconaConcorrente1.setIcon(GestioneRound.getConcorrentiAttuali()[0].getIcona());
         lblIconaConcorrente2.setIcon(GestioneRound.getConcorrentiAttuali()[1].getIcona());
     }
+    
+    /**
+     * Metodo per inizializzare gli sfondi
+     * @return lista con gli sfondi
+     */
+    public ArrayList<ImageIcon> getListaSfondi(){
+        ArrayList<ImageIcon> sfondi = new ArrayList<>();
+        sfondi.add(new ImageIcon(getClass().getResource("/immagini/stage1.png")));
+        sfondi.add(new ImageIcon(getClass().getResource("/immagini/stage2.png")));
+        sfondi.add(new ImageIcon(getClass().getResource("/immagini/stage3.png")));
+        sfondi.add(new ImageIcon(getClass().getResource("/immagini/stage4.png")));
+        sfondi.add(new ImageIcon(getClass().getResource("/immagini/stage5.png")));
+        Collections.shuffle(sfondi);
+        return sfondi;
+    }
+    
+    /**
+     * Metodo per passare allo sfondo successivo
+     */
+    public void prossimoSfondo(){
+        lblSfondo.setIcon(sfondi.poll());
+    }
     /**
      * @param args the command line arguments
      */
@@ -360,11 +413,13 @@ public class FrmStage extends javax.swing.JFrame {
     private javax.swing.JLabel lblIconaConcorrente1;
     private javax.swing.JLabel lblIconaConcorrente2;
     private javax.swing.JLabel lblNRound;
+    private javax.swing.JLabel lblSfondo;
     private javax.swing.JProgressBar pb1;
     private javax.swing.JProgressBar pb2;
     private javax.swing.JPanel pnlConcorrente1;
     private javax.swing.JPanel pnlConcorrente2;
     private javax.swing.JPanel pnlMenu;
+    private javax.swing.JPanel pnlMenuSuperiore;
     private javax.swing.JPanel pnlRound;
     private javax.swing.JPanel pnlStage;
     // End of variables declaration//GEN-END:variables
