@@ -157,7 +157,7 @@ public class FrmClassifica extends javax.swing.JFrame {
         for(int i = 0; i < GestioneTorneo.getClassifica().size(); i++){
             listaLabel.get(i).setIcon(GestioneTorneo.getClassifica().get(i).getIconaClassifica());
         }
-        
+        //ciclo che per ogni label rimasta nella lista imposta l'icona default
         for(int i = GestioneTorneo.getClassifica().size(); i < 11; i++){
             listaLabel.get(i).setIcon(new ImageIcon(getClass().getResource("/immagini/icona_classifica_default.png")));
         }
