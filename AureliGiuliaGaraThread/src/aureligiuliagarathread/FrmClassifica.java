@@ -5,6 +5,7 @@
 package aureligiuliagarathread;
 
 import java.util.ArrayList;
+import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 
 /**
@@ -155,6 +156,10 @@ public class FrmClassifica extends javax.swing.JFrame {
         //ciclo che per ogni concorrente salvato nella classifica aggiorna le relative immagini
         for(int i = 0; i < GestioneTorneo.getClassifica().size(); i++){
             listaLabel.get(i).setIcon(GestioneTorneo.getClassifica().get(i).getIconaClassifica());
+        }
+        
+        for(int i = GestioneTorneo.getClassifica().size(); i < 11; i++){
+            listaLabel.get(i).setIcon(new ImageIcon(getClass().getResource("/immagini/icona_classifica_default.png")));
         }
     }
     

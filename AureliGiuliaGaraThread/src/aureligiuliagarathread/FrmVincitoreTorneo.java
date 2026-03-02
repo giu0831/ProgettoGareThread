@@ -59,6 +59,7 @@ public class FrmVincitoreTorneo extends javax.swing.JFrame {
         lblRisultato = new javax.swing.JLabel();
         btnRitornoSchermataIniziale = new javax.swing.JButton();
         btnMutaMusica = new javax.swing.JButton();
+        btnVediClassifica = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Campione torneo");
@@ -95,6 +96,19 @@ public class FrmVincitoreTorneo extends javax.swing.JFrame {
             }
         });
 
+        btnVediClassifica.setBackground(new java.awt.Color(0, 0, 0));
+        btnVediClassifica.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
+        btnVediClassifica.setForeground(new java.awt.Color(255, 255, 255));
+        btnVediClassifica.setText("📊");
+        btnVediClassifica.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.LOWERED, new java.awt.Color(153, 255, 255), new java.awt.Color(153, 255, 255), new java.awt.Color(204, 255, 255), new java.awt.Color(204, 255, 255)));
+        btnVediClassifica.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnVediClassifica.setFocusPainted(false);
+        btnVediClassifica.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnVediClassificaActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout pnlCampioneLayout = new javax.swing.GroupLayout(pnlCampione);
         pnlCampione.setLayout(pnlCampioneLayout);
         pnlCampioneLayout.setHorizontalGroup(
@@ -104,16 +118,18 @@ public class FrmVincitoreTorneo extends javax.swing.JFrame {
                 .addComponent(lblIconaCampione, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(108, 108, 108))
             .addGroup(pnlCampioneLayout.createSequentialGroup()
-                .addGap(25, 25, 25)
                 .addGroup(pnlCampioneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(pnlCampioneLayout.createSequentialGroup()
-                        .addComponent(btnMutaMusica, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 20, Short.MAX_VALUE)
-                        .addComponent(btnRitornoSchermataIniziale, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(25, 25, 25))
+                        .addGap(25, 25, 25)
+                        .addComponent(lblRisultato, javax.swing.GroupLayout.PREFERRED_SIZE, 364, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(pnlCampioneLayout.createSequentialGroup()
-                        .addComponent(lblRisultato, javax.swing.GroupLayout.PREFERRED_SIZE, 364, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                        .addGap(5, 5, 5)
+                        .addComponent(btnMutaMusica, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(15, 15, 15)
+                        .addComponent(btnRitornoSchermataIniziale, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(15, 15, 15)
+                        .addComponent(btnVediClassifica, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         pnlCampioneLayout.setVerticalGroup(
             pnlCampioneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -125,7 +141,8 @@ public class FrmVincitoreTorneo extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 186, Short.MAX_VALUE)
                 .addGroup(pnlCampioneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnRitornoSchermataIniziale, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnMutaMusica, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnMutaMusica, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnVediClassifica, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(14, 14, 14))
         );
 
@@ -170,6 +187,12 @@ public class FrmVincitoreTorneo extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnMutaMusicaActionPerformed
 
+    private void btnVediClassificaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVediClassificaActionPerformed
+        //apertura form classifica
+        FrmClassifica frmClassifica = new FrmClassifica();
+        frmClassifica.setVisible(true);
+    }//GEN-LAST:event_btnVediClassificaActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -198,6 +221,7 @@ public class FrmVincitoreTorneo extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnMutaMusica;
     private javax.swing.JButton btnRitornoSchermataIniziale;
+    private javax.swing.JButton btnVediClassifica;
     private javax.swing.JLabel lblIconaCampione;
     private javax.swing.JLabel lblRisultato;
     private javax.swing.JPanel pnlCampione;
