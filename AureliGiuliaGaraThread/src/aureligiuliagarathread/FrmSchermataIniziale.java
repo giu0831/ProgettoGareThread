@@ -41,6 +41,7 @@ public class FrmSchermataIniziale extends javax.swing.JFrame {
         lblTitolo = new javax.swing.JLabel();
         btnAvvia = new javax.swing.JButton();
         btnMutaMusica = new javax.swing.JButton();
+        btnInformazioni = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Schermata iniziale");
@@ -78,6 +79,19 @@ public class FrmSchermataIniziale extends javax.swing.JFrame {
             }
         });
 
+        btnInformazioni.setBackground(new java.awt.Color(0, 0, 0));
+        btnInformazioni.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
+        btnInformazioni.setForeground(new java.awt.Color(255, 255, 255));
+        btnInformazioni.setText("?");
+        btnInformazioni.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.LOWERED, new java.awt.Color(153, 255, 255), new java.awt.Color(153, 255, 255), new java.awt.Color(204, 255, 255), new java.awt.Color(204, 255, 255)));
+        btnInformazioni.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnInformazioni.setFocusPainted(false);
+        btnInformazioni.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnInformazioniActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -89,10 +103,10 @@ public class FrmSchermataIniziale extends javax.swing.JFrame {
                         .addComponent(btnMutaMusica)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(btnAvvia, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(151, 151, 151))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(lblTitolo)
-                        .addContainerGap(22, Short.MAX_VALUE))))
+                        .addGap(102, 102, 102)
+                        .addComponent(btnInformazioni))
+                    .addComponent(lblTitolo))
+                .addContainerGap(22, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -102,7 +116,8 @@ public class FrmSchermataIniziale extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnAvvia)
-                    .addComponent(btnMutaMusica))
+                    .addComponent(btnMutaMusica)
+                    .addComponent(btnInformazioni))
                 .addGap(30, 30, 30))
         );
 
@@ -144,6 +159,12 @@ public class FrmSchermataIniziale extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnMutaMusicaActionPerformed
 
+    private void btnInformazioniActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInformazioniActionPerformed
+        //apro il form informazioni
+        FrmInformazioni frmInformazioni = new FrmInformazioni();
+        frmInformazioni.setVisible(true);
+    }//GEN-LAST:event_btnInformazioniActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -171,6 +192,7 @@ public class FrmSchermataIniziale extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAvvia;
+    private javax.swing.JButton btnInformazioni;
     private javax.swing.JButton btnMutaMusica;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lblTitolo;
